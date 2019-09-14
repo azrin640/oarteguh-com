@@ -1,0 +1,15 @@
+.profile{
+   overflow: auto;   
+   margin-bottom: 10px;
+}
+
+.timeline{
+   min-height: 400px;
+   height: 85vh;  
+   padding: 7px 5px 20px 5px; 
+
+   &__card{
+      margin-bottom: 10px;
+   }
+}
+

@@ -1,0 +1,21 @@
+.profile{
+   position: relative;
+
+}
+
+.timeline{
+   padding: 10px;
+}
+
+.sidebars{
+   z-index: 5;
+   right: 5px;
+   top: 5px;
+   bottom: 5px;
+   position: fixed;
+   overflow-x: hidden;
+}
+
+.sidebar{
+   padding: 10px;
+}

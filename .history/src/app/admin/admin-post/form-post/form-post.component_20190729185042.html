@@ -1,0 +1,130 @@
+<mat-card>
+      <mat-card-title class="lm__text-title-primary mat-elevation-z8">
+         Create New Post
+      </mat-card-title>
+      
+      <mat-card-content>   
+   
+      <form [formGroup]="formNewPost" >
+
+         <div class="form" *ngIf="!sidebar">
+
+            <div class="lm__form" fxLayout="column" fxLayoutAlign="start">
+
+               <!-- Image -->
+               <div class="lm__form-button-container upload" fxLayout="column"> 
+                  <input class="lm__input-hidden upload__item" type="file" #image (change)="selectedFile($event)">
+                  <button class="lm__form-button-upload upload__item" 
+                     type="button" mat-raised-button color="primary" 
+                     (click)="image.click()"
+                  >
+                     Select Picture
+                  </button>
+
+                  <div class="lm__form-progress-bar-title upload__item" *ngIf="selectedImage">
+                     File name: {{ selectedImage.name }} <br>
+                     File size: {{ selectedImage.size/(1*10e2) | number:'2.0-0'}} kB
+                  </div>
+                     
+                  <div fxFlex="40" class="lm__form-progress-bar-button upload__item" *ngIf="selectedImage">
+                     <button mat-raised-button class="lm__form-button-upload" (click)="uploadFile()" [color]="uploading" [disabled]="uploaded">Upload Picture </button>    
+                  </div> 
+
+                  <div class="lm__form-progress-bar-button upload__item" *ngIf="selectedImage">
+                     {{ uploadPct }} %   
+                  </div>
+
+                  <mat-progress-bar
+                     class="upload__item"
+                     *ngIf="selectedImage"
+                     [color]="uploading"
+                     mode="determinate"
+                     [value]="uploadPct" >
+                  </mat-progress-bar>          
+                     
+               </div>
+
+               <!-- Title -->
+               <mat-form-field>
+                  <input matInput #title placeholder="Title" formControlName="title" (change)="createSlug()" (keyup)="updateTitleSource($event)">
+                  <mat-hint>Title: Click to edit</mat-hint>
+               </mat-form-field>
+
+               <!-- Subtitle -->
+               <mat-form-field>
+                  <input matInput placeholder="Subtitle" formControlName="subtitle" (keyup)="updateSubtitleSource($event)">
+                  <mat-hint>Subtitle: Click to edit</mat-hint>
+               </mat-form-field>
+               
+               <!-- Categories -->
+               <div class="lm__form-item">
+                  <app-chip-categories></app-chip-categories>
+               </div>
+
+               <quill-editor class="quill"></quill-editor>
+               
+               <!-- Content -->
+               <mat-form-field>            
+                  <textarea matInput placeholder="Content" formControlName="content" rows="20" (keyup)="updateContentSource($event)"></textarea>
+                  <mat-hint>Content: Click to edit</mat-hint>
+               </mat-form-field>
+
+               <!-- Tags -->
+               <app-chip-tags></app-chip-tags>
+
+               <!-- Image       -->
+               <div class="lm__form-button-container upload" fxLayout="column"> 
+                  <mat-divider class="divider upload__item" inset="true"></mat-divider>
+                  <input class="lm__input-hidden upload__item" type="file" #image (change)="selectedFile($event)">
+                  <button class="lm__form-button-upload upload__item" 
+                     type="button" mat-raised-button color="primary" 
+                     (click)="image.click()"
+                  >
+                     Select Picture
+                  </button>
+
+                  <div class="lm__form-progress-bar-title upload__item" *ngIf="selectedImage">
+                     File name: {{ selectedImage.name }} <br>
+                     File size: {{ selectedImage.size/(1*10e2) | number:'2.0-0'}} kB
+                  </div>
+                     
+                  <div fxFlex="40" class="lm__form-progress-bar-button upload__item" *ngIf="selectedImage">
+                     <button mat-raised-button class="lm__form-button-upload" (click)="uploadFile()" [color]="uploading" [disabled]="uploaded">Upload Picture </button>    
+                  </div> 
+
+                  <div class="lm__form-progress-bar-button upload__item" *ngIf="selectedImage">
+                     {{ uploadPct }} %   
+                  </div>
+
+                  <mat-progress-bar
+                     class="upload__item"
+                     *ngIf="selectedImage"
+                     [color]="uploading"
+                     mode="determinate"
+                     [value]="uploadPct" >
+                  </mat-progress-bar>          
+                     
+               </div>
+
+               <!-- Slug -->
+               <mat-form-field>
+                  <input matInput placeholder="Slug" formControlName="slug">
+               </mat-form-field>  
+
+            </div>
+
+            <div class="lm__form-button-submit" fxLayout fxLayoutAlign="center center">
+               <button fxFlex="40" mat-raised-button color="primary"
+                  (click)="submitPost()">
+                  Submit Post
+               </button>
+            </div>
+
+         </div>
+
+         
+
+      </form>
+
+   </mat-card-content>         
+</mat-card> 

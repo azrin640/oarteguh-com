@@ -1,0 +1,30 @@
+$white: #ffffff;
+$primary: #fe4365;
+
+.footer{
+   bottom: 0;
+   z-index: 10;
+   position: fixed;
+   font-size: 1rem;
+   height: 40px;
+   color: $primary;
+   
+
+   &__text{
+      padding: 0 10px 0 10px;
+   }
+
+   &__icon{
+      padding-top: 10px;
+      color: $white;
+   } 
+   
+   &__container{
+      padding-top: 2px;
+      background-color: $primary;
+   }
+}
+
+.footer:hover{
+   transform: scale(1.2, 1.2);
+}

@@ -1,0 +1,17 @@
+<div fxLayout="column" fxLayoutAlign="center center" >
+   <mat-card-content>
+      <div class="mb__warning" fxLayout="column" fxLayoutAlign="center center" *ngIf="data">
+         {{ data }}
+      </div>      
+   </mat-card-content>
+   <mat-card-actions>
+      <div class="action">
+         <div class="action__button-close">
+            <button mat-icon-button >
+               <mat-icon>close</mat-icon>
+            </button>
+            
+         </div>
+      </div>
+   </mat-card-actions>
+</div> 

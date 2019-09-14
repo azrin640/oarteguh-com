@@ -1,0 +1,36 @@
+<div class="lm__page-min70vh-hidden" fxLayout="column" fxLayoutAlign="center center">
+   <div class="lm__logo-4rem">
+      azrin.dev
+   </div>
+   <div class="lm__card" (mouseenter)="mouseEnterCard($event)" (mouseleave)="mouseLeaveCard($event)">
+      
+      <mat-card>
+         <mat-card-title class="lm__card-title">
+            Email Authentication
+         </mat-card-title>
+         <mat-card-content>
+
+            <p>If you agree to the <span><button mat-button class="auth__tnc-button" color="accent">Terms and Conditions</button></span> of our website, please click the authentication button below;</p>
+
+            <div @iconClickButton *ngIf="mouseEnter; else elseBlock" class="auth__button" fxLayout="column" fxLayoutAlign="center center">
+               <button class="x-button-enter" mat-raised-button color="primary" (click)="agreeTnc()">
+                  <mat-icon class="y-icon-enter">touch_app</mat-icon>
+                  I agree to the Terms and Conditions 
+               </button>
+            </div>
+            <ng-template #elseBlock>
+               <div @iconClickButton class="auth__button" fxLayout="column" fxLayoutAlign="center center">            
+                  <button class="x-button-enter" mat-raised-button color="primary" (click)="agreeTnc()">
+                     <mat-icon class="y-icon-enter">touch_app</mat-icon>
+                     I agree to the Terms and Conditions 
+                  </button>
+               </div>
+            </ng-template>
+
+         </mat-card-content>
+      </mat-card>
+   </div>
+
+
+
+</div>

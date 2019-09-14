@@ -1,0 +1,40 @@
+<mat-accordion class="lm__accordion">
+
+   <mat-expansion-panel #panelOpen [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header class="mat-elevation-z8">         
+            <mat-panel-title>
+               Personal Information 
+            </mat-panel-title>
+            <mat-panel-description fxLayout="row" fxLayoutAlign="space-between center">
+               Update your personal Information
+               <mat-icon [color]="panelOpen.expanded ? 'accent' : 'primary'">account_circle</mat-icon>
+            </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!-- <div class="lm__panel-content" fxLayout="column"> -->
+
+         <mat-form-field class="example-full-width">
+            <input matInput type="email"
+               placeholder="{{ profile.email || 'Email' }}" 
+               [formControl]="email" 
+               (change)="updateProfile($event)"               
+            >
+             <!-- (keyup.enter)="updateProfile({ email: email.value })" -->
+            <mat-icon matSuffix *ngIf="!email.touched">mode_edit</mat-icon>
+            <mat-icon matSuffix *ngIf="email.touched" color="warn">error</mat-icon>
+            <mat-hint>Press <strong class="lm__text-strong">Enter</strong> to submit</mat-hint>
+            <mat-error *ngIf="email.hasError('email')">
+               Please key in a valid email.
+            </mat-error >
+         </mat-form-field>  
+
+         <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+         </mat-action-row>
+
+      <!-- </div> -->
+
+   </mat-expansion-panel>
+
+</mat-accordion>
+    

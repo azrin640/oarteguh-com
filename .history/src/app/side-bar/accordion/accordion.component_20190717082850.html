@@ -1,0 +1,39 @@
+<mat-accordion class="lm__accordion">
+
+   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header class="mat-elevation-z8">         
+            <mat-panel-title>
+               Personal Information
+            </mat-panel-title>
+            <mat-panel-description fxLayout="row" fxLayoutAlign="space-between center">
+               Update your personal Information
+               <span class="lm__panel-header" *ngIf="step == 0; else elseBlock" >
+                  <mat-icon color="accent">account_circle</mat-icon>
+               </span>
+               <ng-template #elseBlock>
+                  <mat-icon color="primary">account_circle</mat-icon>
+               </ng-template>
+            </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!-- <div class="lm__panel-content" fxLayout="column"> -->
+
+         <mat-form-field class="example-full-width">
+            <input matInput type="email"
+               placeholder="{{ profile.email || 'Email' }}" 
+               [formControl]="email" 
+               #email (keyup.enter)="updateProfile({ email: email.value })"
+            >
+            <mat-icon matSuffix>mode_edit</mat-icon>
+         </mat-form-field>  
+
+         <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+         </mat-action-row>
+
+      <!-- </div> -->
+
+   </mat-expansion-panel>
+
+</mat-accordion>
+    

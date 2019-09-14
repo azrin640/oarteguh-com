@@ -1,0 +1,133 @@
+<div class="lm__container-100p">
+
+   <div class="nav">
+
+      <div class="nav__toolbar">
+         <mat-toolbar color="primary">  
+               <span class="lm__menu-span-logo" [ngClass]="{ 'shadow__text-left': !(isHandset$|async), 'shadow__text-center': (isHandset$|async) }" routerLink="/">
+                  {{ 'azrin.dev { top: sometime }' }}
+               </span>
+               <span class="lm__menu-span-filler"></span>
+               <span class="lm__menu-span-buttons">
+                  <button mat-icon-button  class="lm__menu-span-button shadow__text-right" *ngFor="let link of links.public" routerLink="{{ link.path }}" color="accent">
+                     <mat-icon class="lm__menu-span-button-icon">
+                        {{ link.data.icon }}
+                     </mat-icon>
+                  </button>
+               </span>
+         </mat-toolbar> 
+      </div> 
+
+      <div class="nav__sidenav">
+         <mat-sidenav-container hasBackdrop="false"> 
+
+            <mat-sidenav #drawer class="nav__drawer"              
+               fixedInViewport
+               attr.role="navigation" 
+               [@fadeOut]="sideNavIcon"                  
+               mode="over"
+               [opened]="opened"
+            >       
+               <div class="nav__drawer-menu" fxLayout="row" fxLayoutAlign="center center">
+                     <div *ngIf="sideNavIcon">
+                        <button mat-icon-button color="primary" (click)="toggleSidenav()">
+                           <mat-icon>chevron_right</mat-icon>
+                        </button>
+                     </div>
+                     <div class="nav__sidenav-drawer-menu-item" fxLayout="row" fxLayoutAlign="center center">
+                        <div fxFlex="80" *ngIf="!sideNavIcon">Menu</div>
+                        <div fxFlex="20" *ngIf="!sideNavIcon">
+                           <button mat-icon-button (click)="toggleSidenav()">
+                              <mat-icon  color="primary">close</mat-icon>
+                           </button>
+                        </div>
+                     </div>
+               </div>  
+
+               <!-- Public menu -->
+               <mat-nav-list class="nav__drawer-links" fxLayout="column" fxLayoutAlign="start">
+
+                  <div class="nav__drawer-link" *ngFor="let link of links.public">
+                     <a mat-list-item routerLink="{{link.path}}" >
+                        <mat-icon class="nav__drawer-link-icon" color="primary">
+                           {{ link.data.icon }}
+                        </mat-icon>
+                        <div class="nav__drawer-link-text" *ngIf="!sideNavIcon">
+                           {{ link.data.name }}
+                        </div>                        
+                     </a> 
+                  </div>
+                  <mat-divider *ngIf="sideNavIcon"></mat-divider>
+                  <div class="nav__drawer-link" *ngIf="sideNavIcon">
+                     <button class="nav__drawer-link-menu-button" mat-icon-button [matMenuTriggerFor]="menuSettings" color="primary">
+                        <mat-icon class="nav__drawer-menu-link-icon" >
+                           account_circle
+                        </mat-icon>
+                     </button>
+                     <mat-menu #menuSettings="matMenu" >
+                           <button mat-menu-item *ngFor="let link of links.user" routerLink="{{ link.path }}">
+                              <mat-icon color="primary">
+                                 {{ link.data.icon }}
+                              </mat-icon>
+                              {{ link.data.name }}
+                           </button>
+                     </mat-menu>
+                  </div>
+
+                  <div class="nav__drawer-link" *ngIf="sideNavIcon">
+                     <button class="nav__drawer-link-menu-button" mat-icon-button [matMenuTriggerFor]="menuSettings" color="primary" >
+                        <mat-icon class="nav__drawer-menu-link-icon" >
+                           settings
+                        </mat-icon>
+                     </button>
+                     <mat-menu #menuSettings="matMenu" >
+                           <button mat-menu-item *ngFor="let link of links.admin" routerLink="{{ link.path }}">
+                              <mat-icon color="primary">
+                                 {{ link.data.icon }}
+                              </mat-icon>
+                              {{ link.data.name }}
+                           </button>
+                     </mat-menu>
+                  </div>
+
+
+
+
+
+
+               </mat-nav-list>
+               <mat-divider></mat-divider>
+               <!-- User menu -->
+               <mat-expansion-panel *ngIf="!sideNavIcon">
+                  <mat-expansion-panel-header >
+                     <mat-panel-title>
+                        <mat-icon class="lm__icon" color="primary">settings</mat-icon>
+                        <span>Settings</span>
+                     </mat-panel-title>
+                  </mat-expansion-panel-header>                  
+                  <mat-nav-list >
+                     <div class="links" *ngFor="let link of links.user">
+                        <a mat-list-item routerLink="{{link.path}}" >
+                           <mat-icon class="lm__icon" color="primary">{{ link.data.icon }}</mat-icon>
+                           <div class="text" *ngIf="!sideNavIcon">{{ link.data.name }}</div>                        
+                        </a> 
+                     </div>
+                     <div class="links" *ngIf="sideNavIcon">
+                        <a mat-list-item >
+                           <mat-icon class="lm__icon" color="primary">settings</mat-icon>                       
+                        </a> 
+                     </div>
+                  </mat-nav-list>             
+               </mat-expansion-panel>
+            </mat-sidenav>
+
+            <mat-sidenav-content class="nav__sidenav-content">
+                     <!-- Add Content Here -->
+                     <router-outlet></router-outlet> 
+            </mat-sidenav-content>
+
+         </mat-sidenav-container>
+      </div>  
+
+   </div>
+</div>

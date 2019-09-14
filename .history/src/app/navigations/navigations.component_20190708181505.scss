@@ -1,0 +1,44 @@
+.mat-list-item-option{
+   padding: 0 !important; 
+}
+
+.nav{
+
+   position: relative;
+
+   &__toolbar{
+      z-index: 10;
+      position: absolute;
+      width:100%;
+      height: 64px;  
+   }
+
+   &__sidenav{
+
+      &-content{
+         padding-top: 69px;
+         padding-right: 5px;
+         padding-left: 81px;
+      }
+   }
+
+   &__drawer{
+
+      padding-top: 54px;
+
+      &-menu{
+        background-color: #303030;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      &-link-icon{
+         padding-left: 10px;
+         padding-right: 10px;
+      }
+
+      &-link-menu-button{
+         padding-left: 26px;
+      }
+   }
+}

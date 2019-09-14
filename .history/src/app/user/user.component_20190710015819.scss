@@ -1,0 +1,32 @@
+.profile{
+   overflow: auto;   
+   margin-bottom: 10px;
+}
+
+.timeline{
+   width: 60%;
+   min-height: 400px;
+   height: 85vh;  
+   padding: 7px 5px 5px 5px; 
+
+   &__card{
+      margin-bottom: 10px;
+   }
+}
+
+.sidebar{
+   width: 40%;
+   overflow: hidden; 
+   top: 3px;
+   position: sticky;
+   position: -webkit-sticky; 
+   padding: 5px 7px 5px 5px;   
+
+   &__card{
+      height: 81vh;
+   }
+}
+
+.card{
+   height: 81vh;   
+}

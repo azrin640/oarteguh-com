@@ -1,0 +1,128 @@
+@mixin layout-master-mobile($name){
+
+   @media only screen and (max-width: 959px){      
+   
+      $white:#fff;
+      $primary: #fe4365;
+      $primary-light: #fc9d9a;
+      $accent: #ff8943;
+      $warn: #f44336;
+
+      .#{$name} {
+
+         &__container{
+
+            &-100p{
+               height: 100%;
+               width: 100%;
+            }
+
+         }
+
+         &__menu{
+            
+            &-span-logo{
+               font-family: 'Luckiest Guy', cursive;
+               color: #fc9d9a;   
+               font-size: 1.3rem;  
+               padding-top: 10px; 
+               padding-left: 10vw; 
+            }
+
+            &-span-logo:hover{
+               color: $white;
+               transform: scale(1.1,1.1);
+            }
+
+            &-span-logo:focus{
+               outline: none;
+            }
+
+            &-span-filler{
+               flex: 1 1 auto;
+            }
+
+            &-span-buttons{
+               padding-right: 10vw;
+            }
+
+            &-span-button{
+               margin-left: 15px !important;
+            }
+
+            &-span-button-icon{
+               font-size: 2rem;
+            }
+
+            &-span-button-icon:hover{
+               font-size: 2rem;
+               color: $white;
+               transform: scale(1.2, 1.2);
+            }
+
+         }
+         
+         &__logo{
+         
+            &-4rem{
+               font-family: 'Luckiest Guy', cursive;
+               color: $primary;   
+               font-size: 4rem;  
+               padding-top: 10px; 
+               padding-bottom: 10px;
+            }
+            
+            &-2rem{
+               font-family: 'Luckiest Guy', cursive;
+               color: $primary;   
+               font-size: 1.5rem;  
+               padding: 0 10px 0 10px;
+            }
+         }
+
+         &__avatar-ls{
+
+            overflow: hidden;
+
+            &-image{
+               width: 80px;
+               border-radius: 50%;
+               margin: 10px;
+               background-color: $primary;
+               padding: 10px;
+            }
+         }
+
+         &__page{
+
+            &-100p{
+               height: 100%;
+            }
+         }
+
+         &__sidebar{
+            position: fixed;
+         }
+
+         &__icon{
+            padding-right: 20px;
+         }
+
+         &__icon:hover{
+            color: $white;
+         }
+
+         &__icon:focus{
+            outline: none;
+         }
+
+
+      }
+
+   }
+
+
+
+
+
+}

@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin mixin-red-style($theme) {
+  // Extract the palettes you need from the theme definition.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+   
+  
+  @include mat-core-theme($theme);
+  // Define any styles affected by the theme.
+
+  .red-style{    
+      @include mat-bottom-sheet-theme($theme);
+      @include mat-snack-bar-theme($theme);
+      background-color: mat-color($primary);
+      border-color: mat-color($accent, A400);
+      color: mat-color($accent, 100);
+   }
+}

@@ -1,0 +1,108 @@
+<div class="lm__card-pre" fxLayout="column" fxLayoutAlign="center center" *ngIf="content">
+
+   <mat-card>
+
+      <div class="lm__card-pre-image" *ngIf="imagePreview">
+         <img mat-card-image [src]="imagePreview">
+      </div>
+      
+      <!-- Poster Profile -->
+      <mat-card-header>
+         <img mat-card-avatar src="assets/images/{{ profile.image }}.png">
+         <mat-card-title class="lm__profile-title">
+            <a class="lm__a" matTooltip="Go to this user profile"
+            >                  
+               {{ profile.name | titlecase }}
+            </a>
+         </mat-card-title>
+      
+         <mat-card-subtitle>
+            "{{ subtitle || 'Motto' | titlecase }}"
+         </mat-card-subtitle>
+         <!-- <mat-card-subtitle> //Posted on: {{ date | date:'d/M/y, h:mm:ss a' }} </mat-card-subtitle> -->
+
+      </mat-card-header>
+
+      <!-- Post Title -->
+      <mat-card-title color="primary" class="lm__a-primary">
+         <a class="lm__a" matTooltip="Go to this post">
+            {{ title | titlecase }}
+         </a>
+      </mat-card-title>
+
+      <mat-card-subtitle>
+         {{ subtitle | titlecase }}
+      </mat-card-subtitle>
+
+
+       <mat-card-content>
+         <div class="lm__icons" fxLayout="row" fxLayoutAlign="center center"> 
+            <div class="lm__icon-badge">
+               <mat-icon color="accent" matBadgeColor="accent"
+                  matTooltip="Like and Dislike"
+               >
+                  thumb_up
+               </mat-icon>
+            </div>
+            <div class="lm__icon-badge">
+               <mat-icon color="accent" matBadgeColor="accent"
+                  matTooltip="Like and Dislike"
+               >
+                  thumb_down
+               </mat-icon>
+            </div>
+            <div class="lm__icon-badge">
+               <mat-icon color="accent" matBadgeColor="accent"
+                  matTooltip="Comments"
+               >
+                  share
+               </mat-icon>
+            </div>
+         </div>
+      </mat-card-content>
+
+      <!--
+      <mat-card-subtitle>{{ row.post.subtitle | titlecase }}</mat-card-subtitle>
+      <mat-card-content>                
+         {{ row.post.content | slice:0:200 }} ...
+         <button class="lm__a-button" mat-button color="accent" routerLink="{{ row.post.slug }}">Read More</button>
+      </mat-card-content>
+      <mat-card-content>
+         <div class="lm__mat-chip" fxLayout fxLayoutAlign="center center">
+            <mat-chip-list aria-label="Fish selection">
+               <mat-chip class="lm__mat-chip-list" 
+                  *ngFor="let tag of row.post.tags" 
+                  color="accent" 
+                  selected
+                  routerLink="/posts/tags/tag/{{ tag.tag | lowercase }}"
+                  matTooltip="Go to this tag"
+               >
+                  {{ tag.tag | titlecase }}
+               </mat-chip>
+            </mat-chip-list>
+         </div>
+      </mat-card-content>
+      <mat-card-actions>
+         <div class="lm__card-actions" 
+            fxLayout="row"                    
+            fxLayoutAlign="center center" 
+            @iconButtonEnter 
+            *ngIf="postId === row.post.id"     
+         >
+            <button                            
+               class="lm__card-button x-button-enter" 
+               mat-raised-button color="primary"
+               matTooltip="Go to this post"
+               routerLink="{{ row.post.slug }}"
+            >
+               <mat-icon class="y-icon-enter">touch_app</mat-icon>
+               Read More
+            </button>
+         </div>
+      </mat-card-actions>
+      </div>   -->
+   
+
+   </mat-card>
+
+</div>

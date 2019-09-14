@@ -1,0 +1,97 @@
+<div class="lm__container-100p">
+
+   <div class="nav">
+
+      <div class="nav__toolbar">
+         <mat-toolbar color="primary" fxLayout fxLayoutAlign="center center">            
+            <span class="shadow__text-left" [ngClass]="{ 'lm__menu-logo': !(isHandset$|async), 'lm__menu-logo-hp': (isHandset$|async) }" routerLink="/">
+               {{ 'azrin.dev { top: sometime }' }}
+            </span>
+            <span fxFlex="grow" fxHide.xs></span>
+            <span fxFlex="nogrow" class="lm__menu-span-icon" fxHide.xs>
+               <mat-icon class="lm__icon shadow__text-right" color="accent" *ngFor="let link of links.public">{{ link.data.icon }}</mat-icon>
+            </span>
+         </mat-toolbar>  
+      </div> 
+
+      <div class="nav__sidenav">
+         <mat-sidenav-container hasBackdrop="false"> 
+            <mat-sidenav #drawer 
+               [ngClass]="{ 'nav__sidenav-drawer': !sideNavIcon, 'nav__sidenav-drawer-icon': sideNavIcon}" 
+               fixedInViewport
+               attr.role="navigation" 
+               [@fadeOut]="sideNavIcon"                  
+               mode="over"
+               [opened]="opened">
+               <mat-toolbar>
+                  <mat-toolbar-row fxLayout fxLayoutAlign="center center">
+                     <span fxFlex="90" fxLayout fxLayoutAlign="start center" *ngIf="!sideNavIcon">Menu</span>
+                     <span fxFlex="10" fxLayout fxLayoutAlign="center center" *ngIf="sideNavIcon">
+                        <button mat-icon-button (click)="closeSidenav()">
+                           <mat-icon  color="primary">chevron_right</mat-icon>
+                        </button>
+                     </span>
+                     <span fxFlex="10" fxLayout fxLayoutAlign="center center" *ngIf="!sideNavIcon">
+                           <button mat-icon-button (click)="closeSidenav()">
+                              <mat-icon  color="primary">close</mat-icon>
+                           </button>
+                     </span>
+                  </mat-toolbar-row>   
+               </mat-toolbar>
+               <!-- Public menu -->
+               <mat-nav-list >
+                  <div class="links" *ngFor="let link of links.public">
+                     <a mat-list-item routerLink="{{link.path}}" >
+                        <mat-icon class="lm__icon" color="primary">{{ link.data.icon }}</mat-icon>
+                        <div class="text" *ngIf="!sideNavIcon">{{ link.data.name }}</div>                        
+                     </a> 
+                  </div>
+                  <div class="links" *ngIf="sideNavIcon">
+                     <a mat-list-item >
+                        <mat-icon class="lm__icon" color="primary">settings</mat-icon>                       
+                     </a> 
+                  </div>
+               </mat-nav-list>
+               <mat-divider></mat-divider>
+               <!-- User menu -->
+               <mat-expansion-panel *ngIf="!sideNavIcon">
+                  <mat-expansion-panel-header >
+                     <mat-panel-title>
+                        <mat-icon class="lm__icon" color="primary">settings</mat-icon>
+                        <span>Settings</span>
+                     </mat-panel-title>
+                  </mat-expansion-panel-header>                  
+                  <mat-nav-list >
+                     <div class="links" *ngFor="let link of links.user">
+                        <a mat-list-item routerLink="{{link.path}}" >
+                           <mat-icon class="lm__icon" color="primary">{{ link.data.icon }}</mat-icon>
+                           <div class="text" *ngIf="!sideNavIcon">{{ link.data.name }}</div>                        
+                        </a> 
+                     </div>
+                     <div class="links" *ngIf="sideNavIcon">
+                        <a mat-list-item >
+                           <mat-icon class="lm__icon" color="primary">settings</mat-icon>                       
+                        </a> 
+                     </div>
+                  </mat-nav-list>             
+               </mat-expansion-panel>
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+
+               <div class="lm__container-content" fxLayout="column" fxLayoutAlign="center center">
+                  <div class="lm__container-content-content" fxFlex="auto" fxFlex="60vw" fxFlex.xs="90vw">
+
+                     <!-- Add Content Here -->
+                     <router-outlet></router-outlet> 
+               
+                  </div>
+               </div>
+
+            </mat-sidenav-content>
+
+         </mat-sidenav-container>
+      </div>  
+
+   </div>
+</div>

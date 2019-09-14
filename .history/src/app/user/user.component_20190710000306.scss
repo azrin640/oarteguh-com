@@ -1,0 +1,14 @@
+.timeline{
+   width: 60%;
+   padding: 5px;
+}
+
+.sidebar{
+   width: 40%;
+   height: 110vh; // experiment with this value, try changing to 110vh
+   min-height: 200px;
+   overflow: auto;
+   position: -webkit-sticky;
+   position: sticky;
+   top: 0;
+}

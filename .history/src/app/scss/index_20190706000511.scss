@@ -1,0 +1,12 @@
+// CUSTOM THEMES
+@import './themes/themes';
+@import './style/fontawesome-icon';
+@import './style/shadow';
+@import './style/mat-card';
+
+
+@include icon-settings("fa-icon");
+@include shadow-settings("shadow");
+@include mat-card-settings("mat-card");
+
+

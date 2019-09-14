@@ -1,0 +1,14 @@
+.footer{
+   bottom: 0;
+   z-index: 10;
+   position: fixed;
+   font-size: 1rem;
+   height: 40px;
+   color: #fe4365;
+
+   &__icon{
+      padding-top: 10px;
+      color: #fff;
+      bottom: 0;
+   }
+}

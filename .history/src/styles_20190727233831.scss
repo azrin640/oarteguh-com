@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import './app/scss/index.scss';
+@import '../node_modules/quill/dist/quill.core.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Lato, Oswald, Roboto, "Helvetica Neue", sans-serif; }
+.mat-list-item-content{
+   padding-right: 0 !important; 
+   padding-left: 0 !important; 
+}
+.mat-form-field-wrapper{
+   width: 100% !important;
+}
+
+.mat-form-field-infix{
+   width: 100% !important;
+}
+

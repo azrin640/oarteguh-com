@@ -1,0 +1,15 @@
+
+@import './mixin/mat-card';
+@include mat-card-settings("mat-card");
+
+.ngm{
+
+   &__span{
+
+      &-italic{
+         font-style: italic !important;
+      }      
+   }
+
+
+}

@@ -1,0 +1,27 @@
+<mat-toolbar class="navbar">
+   <span>
+      <a (click)="backToHome()">
+         <img class="navbar__img" src="assets/images/logo.png" alt="Strong Arrow Logo"> 
+      </a> 
+   </span> 
+   <span class="navbar__spacer"></span>
+   <span ></span>
+   <button class="gold-theme" mat-raised-button routerLink="/login"  *ngIf="!profile">Login</button>
+   <button color="primary" mat-raised-button *ngIf="profile" (click)="logOut()">Logout</button>
+</mat-toolbar>
+
+<div class="location" fxLayout fxLayoutAlign="center center"*ngIf="location">
+   <mat-toolbar class="navbar-detect theme-gold" >
+      <span fxLayout fxLayoutAlign="center center">
+         {{ profile.email }}
+      </span>
+      <span>
+         <mat-icon>close</mat-icon>
+      </span>
+   </mat-toolbar>
+</div>
+
+
+
+
+<app-footer></app-footer>

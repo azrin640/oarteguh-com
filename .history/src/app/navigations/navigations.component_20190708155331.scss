@@ -1,0 +1,34 @@
+
+.nav{
+
+   position: relative;
+
+   &__toolbar{
+      z-index: 10;
+      position: absolute;
+      width:100%;
+      height: 64px;  
+   }
+
+   &__sidenav{
+      
+      &-drawer{
+         padding-top: 64px;
+      }
+
+      &-content{
+         padding-top: 74px;
+         padding-right: 10px;
+         padding-left: 86px;
+      }
+   }
+
+   &__drawer{
+
+      &-menu{
+        background-color: #303030;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+   }
+}

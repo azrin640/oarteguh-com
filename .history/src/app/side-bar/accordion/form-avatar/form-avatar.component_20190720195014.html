@@ -1,0 +1,36 @@
+<form [formGroup]="formAvatarGroup">
+
+   <mat-tab-group color="primary">
+
+      <mat-tab class="lm__tab" label="Man">   
+         <mat-radio-group aria-label="Select an option" 
+            formControlName="image" 
+            (change)="updateProfile({ _id: profile._id, image: imageCtrl.value, type: 'string' })"
+         >          
+            <div class="lm__avatar-ls" fxLayout="row wrap" fxLayoutAlign="center center" >
+               <div fxFlex="33" class="lm__avatar-container" fxLayout="column" fxLayoutAlign="center center" *ngFor="let avatar of avatars.boys">
+                  <img class="lm__avatar-ls-image mat-elevation-z8" src="assets/images/{{ avatar }}.png">
+                  <mat-radio-button value="{{ avatar }}">{{ avatar }}</mat-radio-button>
+               </div>         
+            </div>
+         </mat-radio-group>
+      </mat-tab>
+
+      <mat-tab class="lm__tab" label="Woman">   
+         <mat-radio-group aria-label="Select an option" 
+            formControlName="image" 
+            (change)="updateProfile({ _id: profile._id, image: imageCtrl.value, type: 'string' })"
+         >          
+            <div class="lm__avatar-ls" fxLayout="row wrap" fxLayoutAlign="center center" >
+               <div fxFlex="33" class="lm__avatar-container" fxLayout="column" fxLayoutAlign="center center" *ngFor="let avatar of avatars.girls">
+                  <img class="lm__avatar-ls-image mat-elevation-z8" src="assets/images/{{ avatar }}.png">
+                  <mat-radio-button value="{{ avatar }}">{{ avatar }}</mat-radio-button>
+               </div>         
+            </div>
+         </mat-radio-group>
+      </mat-tab>
+   
+   </mat-tab-group>
+
+
+</form>

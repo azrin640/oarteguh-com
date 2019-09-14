@@ -1,0 +1,24 @@
+
+.nav{
+
+   &__toolbar{
+      z-index: 10;
+      position: absolute;
+      width:100%;
+      height: 10vh;
+   }
+
+   &__divider{
+      height: 12vh;
+      background-color: #303030;
+   }
+
+   &__sidenav{
+      padding-top: 8vh;
+      background-color: #303030;
+
+      &-sidenav{
+         padding-top:8vh;
+      }
+   }
+}

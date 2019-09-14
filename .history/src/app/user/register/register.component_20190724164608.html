@@ -1,0 +1,64 @@
+<div class="lm__page-min70vh-hidden" id="top" fxLayout="column" fxLayoutAlign="center center">
+
+   <div fxLayout="column" fxLayoutAlign="center center">
+
+         
+
+      <div class="card">
+         <mat-card>
+            <mat-card-title>
+               Register Form 
+            </mat-card-title>
+            <mat-card-content>
+
+               <div>
+
+                  <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                     <div fxLayout="column" fxLayoutAlign="center center">
+
+                        <mat-form-field class="register__input" appearance="fill">
+                           <mat-label>Email</mat-label>
+                           <input matInput placeholder="Email" #email formControlName="email" required autocomplete="email">
+                           <mat-icon matSuffix color="primary">alternate_email</mat-icon>
+                           <mat-hint>Enter email here</mat-hint>
+                           <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                              Email is <strong>required</strong>
+                           </mat-error>
+                           <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                              Please enter a valid <strong>email</strong>
+                           </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="register__input" appearance="fill">
+                           <mat-label>Password</mat-label>
+                           <input matInput type="password" placeholder="Password" formControlName="password" required autocomplete="password">
+                           <mat-icon matSuffix color="primary">vpn_key</mat-icon>
+                           <mat-hint>Enter password here</mat-hint>
+                           <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                              Password is <strong>required</strong>
+                           </mat-error>
+                           <mat-error *ngIf="registerForm.get('password').hasError('minlength')">
+                              Minimum password is <strong>{{ registerForm.get('password').errors.minlength.requiredLength }}</strong> characters. Now you entered only <strong>{{ registerForm.get('password').errors.minlength.actualLength }}</strong>
+                           </mat-error>
+                        </mat-form-field>
+
+                        <button mat-raised-button class="register__form-button" type="submit" [disabled]="registerForm.invalid" color="primary" >
+                           <mat-icon>check_circle</mat-icon>
+                           Register
+                        </button>
+
+                     </div>
+
+                     {{ registerForm.errors }}
+
+                  </form>
+
+               </div>
+
+            </mat-card-content>
+         </mat-card>
+      </div>
+   </div>
+
+</div>

@@ -1,0 +1,156 @@
+<div class="lm__page-100p profile" fxLayout="row" fxLayout.xs="column">
+
+   <div fxFlex="60" fxFlex.xs="100" class="timeline">
+
+      <div class="posts" *ngFor="let row of posts" >
+         <div [@xEnter]="postsExist">
+            <mat-card  fxLayout="column" class="lm__card timeline__card x-enter">   
+               
+               <!-- Card Image  -->
+               <div  id="{{ row.post.image }}"
+                     @imageEnter
+                     *ngIf="row.post.image == imagePost; else elseBlock"                        
+               >
+                  <img mat-card-image                                      
+                     class="image-enter lm__card-image" 
+                     src="{{ row.post.image }}" 
+                     alt="{{ row.poster.name | titlecase }}" 
+                     (mouseout)="mouseLeaveImage($event)"                    
+                  >                                      
+               </div> 
+               <ng-template #elseBlock >
+                  <div id="{{ row.post.image }}" 
+                     *ngIf="row.post.image"
+                     (mouseenter)="mouseEnterImage($event)" 
+                  >
+                     <img mat-card-image  
+                        src="{{ row.post.image }}" 
+                        alt="{{ row.poster.name | titlecase }}"                     
+                     > 
+                  </div>
+               </ng-template> 
+
+               <div id="{{ row.post.id }}" (mouseenter)="mouseEnterCard($event)" >
+                  <mat-card-header>
+                     <img mat-card-avatar id="{{ row.post.image }}" class="lm__avatar" src="{{ row.poster.avatar || 'assets/images/man.png'}}" >
+                     <mat-card-title class="lm__profile-title">
+                        <a class="lm__a" matTooltip="Go to this user profile"
+                           routerLink="{{ row.poster.slug }}"
+                        >                  
+                           {{ row.poster.name | titlecase }}
+                        </a>
+                     </mat-card-title>
+                     <mat-card-subtitle>
+                        "{{ row.poster.about | titlecase | slice:0:50 }}"
+                     </mat-card-subtitle>
+                     <mat-card-subtitle>Posted on: {{ row.post.date | date:'d/M/y, h:mm:ss a' }} </mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-title color="primary" class="lm__a-primary">
+                     <a [@xEnter]="postsExist" class="lm__a" matTooltip="Go to this post"
+                        routerLink="/post/{{ row.post.slug }}"
+                     >
+                        {{ row.post.title | titlecase }}
+                     </a>
+                  </mat-card-title>
+                  <mat-card-content>
+                     <div class="lm__icons" fxLayout="row" fxLayoutAlign="center center"> 
+                        <div class="lm__icon-badge">
+                           <mat-icon matBadge="{{ row.post.liked.length }}"             matBadgeColor="accent"
+                              matTooltip="Like and Dislike"
+                           >
+                              thumbs_up_down
+                           </mat-icon>
+                        </div>
+                        <div class="lm__icon-badge">
+                           <mat-icon matBadge="{{ row.post.comments.length }}"             matBadgeColor="accent"
+                              matTooltip="Like and Dislike"
+                           >
+                              share
+                           </mat-icon>
+                        </div>
+                        <div class="lm__icon-badge">
+                           <mat-icon matBadge="{{ row.post.shared.length }}" matBadgeColor="accent">
+                              comment
+                           </mat-icon>
+                        </div>
+                     </div>
+                  </mat-card-content>
+                  <mat-card-subtitle>{{ row.post.subtitle | titlecase }}</mat-card-subtitle>
+                  <mat-card-content>                
+                     {{ row.post.content | slice:0:200 }} ...
+                     <button class="lm__a-button" mat-button color="accent" routerLink="{{ row.post.slug }}">Read More</button>
+                  </mat-card-content>
+                  <mat-card-content>
+                     <div class="lm__mat-chip" fxLayout fxLayoutAlign="center center">
+                        <mat-chip-list aria-label="Fish selection">
+                           <mat-chip class="lm__mat-chip-list" 
+                              *ngFor="let tag of row.post.tags" 
+                              color="accent" 
+                              selected
+                              routerLink="/posts/tags/tag/{{ tag.tag | lowercase }}"
+                              matTooltip="Go to this tag"
+                           >
+                              {{ tag.tag | titlecase }}
+                           </mat-chip>
+                        </mat-chip-list>
+                     </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                     <div class="lm__card-actions" 
+                        fxLayout="row"                    
+                        fxLayoutAlign="center center" 
+                        @iconButtonEnter 
+                        *ngIf="postId === row.post.id"     
+                     >
+                        <button                            
+                           class="lm__card-button x-button-enter" 
+                           mat-raised-button color="primary"
+                           matTooltip="Go to this post"
+                           routerLink="{{ row.post.slug }}"
+                        >
+                           <mat-icon class="y-icon-enter">touch_app</mat-icon>
+                           Read More
+                        </button>
+                     </div>
+                  </mat-card-actions>
+               </div>
+            </mat-card>
+         </div>
+      </div>
+   </div>
+
+   <div fxFlex="40" fxFlex.xs="100" class="sidebar">
+      <div>   
+         <mat-card class="sidebar__card">
+            <mat-card-title class="lm__card-title">
+               You might like
+            </mat-card-title>
+            <mat-card-content>
+
+               <div class="lm__card-tab">
+                  <mat-tab-group *ngFor="let category of categoriesPosts">
+                     <mat-tab label="{{ category | titlecase }}">
+                        <div class="posts" fxLayout="column">
+                           <mat-list role="list">
+                              <mat-list-item role="listitem" *ngFor="let row of posts">
+                                 <a class="lm__a-small" matTooltip="Go to this post"
+                                    routerLink="/post/{{ row.post.slug }}"
+                                 >
+                                    {{ row.post.title | titlecase }}
+                                 </a>
+                              </mat-list-item>
+                           </mat-list> 
+                        </div> 
+                     </mat-tab>
+                     <mat-tab label="Second"> Content 2 </mat-tab>
+                     <mat-tab label="Third"> Content 3 </mat-tab>
+                  </mat-tab-group>
+               </div>
+                        
+            </mat-card-content>
+         </mat-card>
+      </div> 
+   </div>
+
+</div>
+

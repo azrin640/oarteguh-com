@@ -1,0 +1,31 @@
+// Material Theming
+@import '~@angular/material/theming';
+@import '../themes/custom-palletes';
+//@import '../themes/pink-style';
+@import './_red-style';
+
+
+// Custom SA Theming
+// @import './sa-theming';
+// @import './_gold-style';
+
+// ANGULAR MATERIAL THEME
+@include mat-core();
+$custom-theme-primary: mat-palette($mat-custom-pink);
+$custom-theme-accent:  mat-palette($mat-custom-pink-accent, 500, A100, A400);
+$custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent);
+@include angular-material-theme($custom-theme);
+
+// THEME-red
+$primary: mat-palette($mat-red);
+$accent:  mat-palette($mat-pink, A200, A100, A400);
+$red-theme:   mat-dark-theme($primary, $accent);
+@include mixin-red-style($red-theme);
+
+// CUSTOM THEME
+// THEME-gold
+// $primary: mat-palette($mat-gold);
+// $accent:  mat-palette($mat-pink, A200, A100, A400);
+// $gold-theme:   mat-dark-theme($primary, $accent);
+// @include mixin-gold-style($gold-theme);
+

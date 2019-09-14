@@ -1,0 +1,30 @@
+// IMPORTS 
+@import './themes/themes';
+@import './style/layout-master';
+@import './style/layout-master-mobile';
+@import './style/shadow';
+//@import './style/mat-card';
+@import './style/fontawesome-icon';
+
+
+
+// LAYOUT
+// Master Layout
+@include layout-master("lm");
+@include layout-master-mobile("lm");
+// Component Layout
+@include shadow-settings("shadow");
+//@include mat-card-settings("mat-card");
+
+// PLUGINS
+// Font Awesome
+@include icon-settings("fa-icon");
+
+
+
+
+
+
+
+
+

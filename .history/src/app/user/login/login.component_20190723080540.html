@@ -1,0 +1,63 @@
+<div class="lm__page-min70vh-hidden" id="top" fxLayout="column" fxLayoutAlign="center center">
+
+   <div fxLayout="column" fxLayoutAlign="center center">
+
+      <div class="lm__logo-4rem">
+         azrin.dev
+      </div>
+
+      <div class="card">
+         <mat-card>
+            <mat-card-title>
+               Login Form 
+            </mat-card-title>
+            <mat-card-content>
+
+               <div class="login__form">
+
+                  <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                     <div fxLayout="column" fxLayoutAlign="center center">
+
+                        <mat-form-field class="login__input" appearance="fill">
+                           <mat-label>Email</mat-label>
+                           <input matInput placeholder="Email" #email formControlName="email" required autocomplete="email">
+                           <mat-icon matSuffix color="primary">alternate_email</mat-icon>
+                           <mat-hint>Enter email here</mat-hint>
+                           <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                              Email is <strong>required</strong>
+                           </mat-error>
+                           <mat-error *ngIf="loginForm.get('email').hasError('email')">
+                              Please enter a valid <strong>email</strong>
+                           </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="login__input" appearance="fill">
+                           <mat-label>Password</mat-label>
+                           <input matInput type="password" placeholder="Password" formControlName="password" required autocomplete="password">
+                           <mat-icon matSuffix color="primary">vpn_key</mat-icon>
+                           <mat-hint>Enter password here</mat-hint>
+                           <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                              Password is <strong>required</strong>
+                           </mat-error>
+                        </mat-form-field>
+
+                        <button mat-raised-button class="login__form-button" type="submit" [disabled]="loginForm.invalid" color="primary" >
+                           <mat-icon>check_circle</mat-icon>
+                           Login
+                        </button>
+
+                     </div>
+
+                     {{ loginForm.errors }}
+
+                  </form>
+
+               </div>
+
+            </mat-card-content>
+         </mat-card>
+      </div>
+   </div>
+
+</div>

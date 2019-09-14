@@ -1,0 +1,84 @@
+body{
+   margin: 0;
+   height: 100%;
+   
+}
+.body{
+   min-height: 79vh;
+   height: 100%;
+   background-color: #303030;
+   color: #fff;
+}
+.header{
+   font-family: 'Luckiest Guy', cursive;
+   background-color: #fe4365;
+   font-size: 2rem;
+   color: #fc9d9a;
+   text-align: center;  
+   line-height: 0.5rem;
+}
+
+.header h2{
+   -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   letter-spacing: 5px;
+   margin: 0;
+   padding-top: 2rem;
+}
+
+.header h3{
+   -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   letter-spacing: 5px;
+}
+
+.title{
+   text-align: center;
+}
+
+.link a{
+   text-align: center;
+   text-decoration: none;
+}
+
+.footer{
+   background-color: #303030;
+   color: #212121;
+   padding: 10px;
+   text-align: center;
+   color: #fe4365;
+   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px){    
+
+   .header{
+      font-size: 1rem;
+      padding: 10px;
+   }
+
+   .header h2{
+      -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      letter-spacing: 5px;
+   }
+
+   .header h3{
+      -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      letter-spacing: 5px;
+   }
+
+}

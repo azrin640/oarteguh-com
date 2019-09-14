@@ -1,0 +1,111 @@
+   <!-- Editor Preview -->
+   <div class="editor">
+      <mat-tab-group>
+
+         <mat-tab label="HTML">   
+            <div  id="content"   
+                  class="ngm__content mat-elevation-z8"
+                  contenteditable="true"
+                  (click)="contentSelected()"
+                  (keyup.enter)="createNodeFromKb('br')"
+                  style="padding: 20px"
+                  [innerHTML]="content"
+            >
+                        
+            </div>                     
+         </mat-tab>
+         <mat-tab label="Code">
+            <div  id="rawContent"   
+                  class="ngm__content mat-elevation-z8"
+                  contenteditable="true"
+                  style="padding: 20px"
+            >
+               {{ rawContent }}
+                        
+            </div>
+         </mat-tab>
+         
+      </mat-tab-group>
+   </div>
+   
+   <!-- Editor Toolbar -->
+   <div class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+   
+      <!-- Bold Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="strong"
+            #strong
+            (click)="createNode(strong)"
+            matTooltip="Bold"
+      >
+         <mat-icon>format_bold</mat-icon>
+      </button>
+   
+      <!-- Italic Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="italic"
+            #italic
+            (click)="createNode(italic)"
+            matTooltip="Italic"
+      >
+         <mat-icon>format_italic</mat-icon>
+      </button>
+
+      <!-- Paragraph Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="p"
+            #paragraph
+            (click)="createNode(paragraph)"
+            matTooltip="Paragraph"
+      >
+         <mat-icon>notes</mat-icon>
+      </button>
+
+      <!-- Break Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="br"
+            #br
+            (click)="createNode(br)"
+            matTooltip="Enter"
+      >
+         <mat-icon>keyboard_return</mat-icon>
+      </button>
+
+      <!-- Format Clear Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="format-clear"
+            #formatClear
+            (click)="clearFormat()"
+            matTooltip="Clear Format"
+      >
+         <mat-icon>format_clear</mat-icon>
+      </button>
+
+      <!-- Align Left Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="align-left"
+            #span
+            (click)="createNode(span)"
+            matTooltip="Align Left"
+      >
+         <mat-icon>format_align_left</mat-icon>
+      </button>
+
+      <!-- Align Center Button  -->
+      <button mat-icon-button 
+            [color]="selected.button.color"
+            id="align-center"
+            #span
+            (click)="createNode(span)"
+            matTooltip="Align Left"
+      >
+         <mat-icon>format_align_center</mat-icon>
+      </button>
+   
+   </div>

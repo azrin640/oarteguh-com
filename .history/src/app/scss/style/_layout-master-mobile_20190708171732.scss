@@ -1,0 +1,93 @@
+@mixin layout-master-mobile($name){
+
+   @media only screen and (max-width: 600px){      
+   
+      $white:#fff;
+
+      .#{$name} {
+
+         &__container{
+
+            &-100p{
+               height: 100%;
+               width: 100%;
+            }
+
+         }
+
+         &__menu{
+            
+            &-span-logo{
+               font-family: 'Luckiest Guy', cursive;
+               color: #fc9d9a;   
+               font-size: 1.5rem;  
+               padding-top: 10px; 
+               padding-left: 10vw; 
+            }
+
+            &-span-logo:hover{
+               color: $white;
+               transform: scale(1.1,1.1);
+            }
+
+            &-span-logo:focus{
+               outline: none;
+            }
+
+            &-span-filler{
+               flex: 1 1 auto;
+            }
+
+            &-span-buttons{
+               padding-right: 10vw;
+            }
+
+            &-span-button{
+               margin-left: 15px !important;
+            }
+
+            &-span-button-icon{
+               font-size: 2rem;
+            }
+
+            &-span-button-icon:hover{
+               font-size: 2rem;
+               color: $white;
+               transform: scale(1.2, 1.2);
+            }
+
+         }
+
+         &__page{
+
+            &-100p{
+               height: 100%;
+               padding-left: 55px;
+               padding-right: 5px;
+               padding-top: 5px;
+               margin-top: 10px;
+            }
+         }
+
+         &__icon{
+            padding-right: 20px;
+         }
+
+         &__icon:hover{
+            color: $white;
+         }
+
+         &__icon:focus{
+            outline: none;
+         }
+
+
+      }
+
+   }
+
+
+
+
+
+}

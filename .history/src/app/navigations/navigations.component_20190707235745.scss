@@ -1,0 +1,40 @@
+
+.nav{
+
+   position: relative;
+
+   &__toolbar{
+      z-index: 10;
+      position: absolute;
+      width:100%;
+      height: 10vh;  
+   }
+
+   &__sidenav{
+      padding-top: 7.3vh;
+      background-color: #303030;
+
+      &-drawer{
+         padding-top: 7.3vh;
+         width: 250px;
+      }
+
+      &-drawer-menu{
+         background-color: #303030;
+         height: 15vh;
+      }
+
+      &-drawer-menu-title{
+         padding-left: 10px;
+      }
+
+      &-drawer-icon{
+         padding-top: 7.3vh;
+         width: 50px;
+      }
+
+      &-button{
+         margin: 10px;
+      }
+   }
+}

@@ -1,0 +1,36 @@
+{
+         poster: { 
+            name: 'Azrin Amin', 
+            slug: '/user/profile/azrin-amin',
+            avatar: 'assets/images/avatar/man.png',
+            about: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
+         },
+         post: {
+            id: '1234',
+            date: Date.now(),
+
+            category: 
+            slug: 
+            image: 
+            title: 
+            subtitle: 
+            content:
+            tags: [{tag: 'Sed'}],
+            liked: [ {user: 'user_id'}],
+            comments: [
+               {
+                  user: 'user_id',
+                  date: Date.now(),
+                  content: 
+                  vote_up: [ {user: 'user_id'}],
+                  vote_down: [ {user: 'user_id'}]
+               }
+            ],
+            shared: [
+               {
+                  user: 'user_id',
+                  date: Date.now()
+               }
+            ]
+         }
+      }

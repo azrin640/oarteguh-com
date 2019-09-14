@@ -1,0 +1,78 @@
+<form [formGroup]="formProfile">
+
+   <mat-accordion class="lm__accordion">
+
+      <mat-expansion-panel #panelOpen [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+
+         <mat-expansion-panel-header class="mat-elevation-z8" 
+            ngClass="{ 'lm__text-primary': panelOpen.expanded }"
+         >         
+               <mat-panel-title >
+                  Personal Information 
+               </mat-panel-title>
+               <mat-panel-description fxLayout="row" fxLayoutAlign="space-between center">
+                  Update your personal Information 
+                  <mat-icon [color]="panelOpen.expanded ? 'accent' : 'primary'">account_circle</mat-icon>
+               </mat-panel-description>
+         </mat-expansion-panel-header>  
+
+         <app-form-personal></app-form-personal>
+
+         <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+         </mat-action-row>
+
+      </mat-expansion-panel>
+
+   </mat-accordion>
+
+   <mat-accordion class="lm__accordion">
+      <mat-expansion-panel #secondPanelOpen [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+
+         <mat-expansion-panel-header class="mat-elevation-z8" 
+            ngClass="{ 'lm__text-primary': secondPanelOpen.expanded }"
+         >         
+            <mat-panel-title >
+               Personal Avatar
+            </mat-panel-title>
+            <mat-panel-description fxLayout="row" fxLayoutAlign="space-between center">
+               Choose an Avatar
+               <mat-icon [color]="secondPanelOpen.expanded ? 'accent' : 'primary'">face</mat-icon>
+            </mat-panel-description>
+         </mat-expansion-panel-header>
+
+         <app-form-avatar></app-form-avatar>        
+
+         <mat-action-row>
+            <button mat-button color="accent" (click)="prevStep()">Previous</button>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+         </mat-action-row>
+
+      </mat-expansion-panel>      
+   </mat-accordion>
+
+   <mat-accordion class="lm__accordion">
+      <mat-expansion-panel #thirdPanelOpen [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+
+         <mat-expansion-panel-header 
+            class="mat-elevation-z8" 
+            ngClass="{'lm__text-primary': thirdPanelOpen.expanded }"
+         >         
+               <mat-panel-title >
+                  Address Information 
+               </mat-panel-title>
+               <mat-panel-description fxLayout="row" fxLayoutAlign="space-between center">
+                  Update your Address Information
+                  <mat-icon [color]="thirdPanelOpen.expanded ? 'accent' : 'primary'">contacts</mat-icon>
+               </mat-panel-description>
+         </mat-expansion-panel-header>
+
+         
+
+         <mat-action-row>
+            <button mat-button color="accent" (click)="prevStep()">Previous</button>
+         </mat-action-row>
+      </mat-expansion-panel>
+   </mat-accordion>
+
+</form>

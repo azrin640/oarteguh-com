@@ -1,0 +1,18 @@
+@mixin icon-settings($name){
+
+   .#{$name}{      
+
+      &__telegram{
+         color: #0088cc;
+         padding: 0 10px 0 10px;
+         font-size: 1.8rem;
+      }
+
+      &__skull{
+         color: #c2185b;
+         padding: 0 10px 0 10px;
+         font-size: 1.8rem;
+      }
+      
+   }
+}

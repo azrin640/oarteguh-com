@@ -1,0 +1,118 @@
+body{
+   margin: 0;
+   height: 100%;   
+}
+
+.primary{
+   color: #fe4365;
+   font-weight: bold;
+}
+.body{
+   min-height: 75vh;
+   height: 100%;
+   background-color: #303030;
+   color: #fff;
+   bottom: 0;
+}
+.header{
+   font-family: 'Luckiest Guy', cursive;
+   background-color: #fe4365;
+   font-size: 2rem;
+   color: #fc9d9a;
+   text-align: center;  
+   margin: 0;
+}
+
+.header h2{
+   -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   letter-spacing: 5px;
+   margin: 0;
+   padding-top: 40px;
+}
+
+.header h3{
+   -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+   letter-spacing: 5px;
+   padding-bottom: 40px;
+   margin: 0;
+}
+
+.title{
+   text-align: center;
+   padding-top: 5vh;
+   padding-bottom: 5vh;
+}
+
+.content{
+   width: 50vw;
+   margin: 0 auto;
+}
+
+.link{
+   padding-top: 10vh;
+   padding-bottom: 10vh;
+   display:  block;
+   margin: 0 auto;
+   text-align: center;
+}
+
+
+
+.link a{
+   
+   text-decoration: none;
+   background-color: #fe4365;
+   color: #fff;
+   border-radius: 5px;
+   padding: 10px;   
+}
+
+.link a:hover{
+   background-color: #fc9d9a;
+}
+.footer{
+   background-color: #212121 !important;
+   padding: 10px;
+   text-align: center;
+   color: #fe4365;
+   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px){    
+
+   .header{
+      font-size: 1rem;
+      padding: 10px;
+   }
+
+   .header h2{
+      -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      letter-spacing: 5px;
+   }
+
+   .header h3{
+      -moz-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -webkit-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -ms-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      -o-filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.6));
+      letter-spacing: 5px;
+   }
+
+   .content{
+      width: 90vw;
+   }
+
+}

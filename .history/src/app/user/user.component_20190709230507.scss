@@ -1,0 +1,14 @@
+.timeline{
+   width: 60%;
+   padding: 5px;
+}
+
+.sidebar{
+   width: 40%;
+   padding: 5px;
+
+   &__card{
+      position: sticky;
+      top: 0;
+   }
+}

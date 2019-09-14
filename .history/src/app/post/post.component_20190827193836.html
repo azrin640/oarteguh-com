@@ -1,0 +1,154 @@
+<div class="lm__page-min70vh-hidden" fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="center">
+   
+   <div fxFlex="40" class="lm__page-sidebar" >
+      <app-side-bar></app-side-bar>
+   </div>
+
+   <div fxFlex="60" class="lm__page-timeline">
+      <div>
+         <mat-card  fxLayout="column" class="lm__card timeline__card x-enter">   
+            
+            <!-- Owner  -->
+            <div class="lm__posts-card-header" fxLayout="row" fxLayoutAlign="start">
+               <div fxFlex="5" fxFlexAlign="start">
+                  <!-- Profile Image -->
+                  <img mat-card-avatar class="lm__avatar" src="assets/images/{{ post.owner.image }}.png" >
+               </div>
+               <div fxFlex="auto" fxFlexAlign="start">    
+                  <!-- Profile Name  -->
+                  <mat-card-title class="lm__profile-title">
+                     <a class="lm__a" matTooltip="Go to this user profile"
+                        routerLink="user/profile/{{ post.owner.name }}/{{ post.owner.id }}"
+                     >                  
+                        {{ post.owner.name | titlecase }}
+                     </a>
+                  </mat-card-title>                                   
+                  <!-- Profile Motto -->
+                  <mat-card-subtitle>
+                     "{{ post.owner.country | titlecase | slice:0:50 }}"
+                     <br>
+                     <!-- Post Date  -->
+                     <em>Posted on: {{ post.created| date:'d/M/y, h:mm:ss a' }}</em> 
+                  </mat-card-subtitle>
+               </div>
+            </div>
+
+            <!-- Card Image  -->
+            <div  id="{{ post.image }}"
+                  *ngIf="row.image ? true : elseBlock"           
+            >
+               <img mat-card-image                                      
+                  class="image-enter lm__card-image" 
+                  src="assets/images/uploads/{{ post.image }}" 
+                  alt="{{ post.image | titlecase }}"                    
+               >                                      
+            </div> 
+            <ng-template #elseBlock >
+               <div id="{{ post.image }}" 
+                  *ngIf="post.image"
+               >
+                  <img mat-card-image  
+                     src="{{ post.image }}" 
+                     alt="{{ post.image | titlecase }}"               
+                  > 
+               </div>
+            </ng-template> 
+
+            <!-- Contents  -->
+            <div id="{{ post.id }}">                  
+
+               <!-- Post Social -->
+               <mat-card-content>
+                  <div class="lm__icons" fxLayout="row" fxLayoutAlign="center center"> 
+
+                     <!-- Liked  -->
+                     <div class="lm__icon-badge">
+                        <mat-icon matBadge="{{ post.vote.length }}"             
+                           matBadgeColor="accent"
+                           matTooltip="Like and Dislike"
+                        >
+                           thumbs_up_down
+                        </mat-icon>
+                     </div>
+
+                     <!-- Post Shared  -->
+                     <div class="lm__icon-badge">
+                        <mat-icon matBadge="{{ post.shared }}"             
+                           matBadgeColor="accent"
+                           matTooltip="Shared"
+                        >
+                           share
+                        </mat-icon>
+                     </div>
+
+                     <!-- Post Comment  -->
+                     <div class="lm__icon-badge">
+                        <mat-icon matBadge="{{ post.comments.length }}" 
+                           matBadgeColor="accent"
+                           matTooltip="Comments"
+                        >
+                           comment
+                        </mat-icon>
+                     </div>
+                     
+                  </div>
+               </mat-card-content>
+
+               <!-- Post Categories  -->
+               <mat-card-content>
+                  <div class="lm__mat-chip" fxLayout="row wrap" fxLayoutAlign="start center">
+                     <span class="lm__post-chip-categories">Categories: </span>
+                     <mat-chip-list>
+                        <mat-chip 
+                           *ngFor="let chip of post.categories" 
+                           color="primary" 
+                           selected
+                           routerLink="/posts/tags/tag/{{ chip.categories | lowercase }}"
+                           matTooltip="Go to this Category"
+                        >
+                           {{ chip | titlecase }}
+                        </mat-chip>
+                     </mat-chip-list>
+                  </div>
+               </mat-card-content>
+
+               <!-- Post Title  -->
+               <mat-card-title color="primary" class="lm__a-primary">
+                  <a class="lm__a" 
+                  >
+                     {{ post.title | titlecase }}
+                  </a>
+               </mat-card-title>                  
+               
+               <!-- Post Subtitle  -->
+               <mat-card-subtitle>{{ post.subtitle | titlecase }}</mat-card-subtitle>
+               
+               <!-- Post Content  -->
+               <mat-card-content>                
+                  <div [innerHTML]="post.content"></div>
+               </mat-card-content>
+               
+               <!-- Post Tags  -->
+               <mat-card-content>
+                  <div class="lm__mat-chip" fxLayout fxLayoutAlign="start center">
+                     <span class="lm__post-chip-categories">Tags: </span>
+                     <mat-chip-list>
+                        <mat-chip class="lm__mat-chip-list" 
+                           *ngFor="let tag of post.tags" 
+                           color="accent" 
+                           selected
+                           routerLink="/posts/tags/tag/{{ tag.tags | lowercase }}"
+                           matTooltip="Go to this tag"
+                        >
+                           {{ tag | titlecase }}
+                        </mat-chip>
+                     </mat-chip-list>
+                  </div>
+               </mat-card-content>
+               
+               
+            </div> 
+         </mat-card>
+      </div>      
+   </div>      
+</div>

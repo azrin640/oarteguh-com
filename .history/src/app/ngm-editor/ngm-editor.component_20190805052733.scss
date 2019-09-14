@@ -1,0 +1,27 @@
+
+@import './mixin/mat-card';
+@include mat-card-settings("mat-card");
+
+   $white:#fff;
+   $primary: #fe4365;
+   $primary-light: #fc9d9a;
+   $accent: #ff8943;
+   $accent-light: #ff884373;
+   $warn: #f44336;
+   $dark-bg: #303030;
+
+.ngm{
+
+   &__span{
+
+      &-italic{
+         font-style: italic !important;
+      }      
+   }
+
+   &__content:focus{
+      outline: 1px solid $accent-light;
+   }
+
+
+}

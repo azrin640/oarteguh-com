@@ -1,0 +1,16 @@
+<div  class="lm__comments-wrapper"
+>
+
+   <div  class="lm__comments-title"
+         fxLayout="column" fxLayoutAlign="center"
+   >
+         <h3>Comments</h3>
+   </div>
+
+   <div class="lm__comments-new"
+         *ngIf="profile"   
+   >
+      <img mat-card-avatar class="lm__avatar" src="assets/images/uploads/{{ profile.image }}">      
+   </div>
+
+</div>

@@ -1,0 +1,18 @@
+.timeline{
+   width: 60%;
+   padding: 5px;
+}
+
+.sidebar{
+   width: 40%;
+   padding: 5px;
+   display: block;
+   position: -webkit-sticky;
+   z-index: 5;
+   overflow: hidden;
+}
+
+.profile .sidebar{
+   position: sticky;
+   top: 0;
+}

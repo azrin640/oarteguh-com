@@ -1,0 +1,114 @@
+<div class="content" id="top">
+
+   <div class="content__100vh" fxLayout="column" fxLayoutAlign="center center">
+
+      <div class="card">
+         <mat-card>
+            <mat-card-title>
+               Serial Form 
+            </mat-card-title>
+            <mat-card-content>
+
+               <div class="serial__form">
+
+                  <form [formGroup]="serialForm" (ngSubmit)="submitSerialForm()">
+
+                     <div fxLayout="column" fxLayoutAlign="center center">
+
+                        <mat-form-field class="serial__input" appearance="fill">
+                           <mat-label>Serial 1</mat-label>
+                           <input matInput placeholder="Serial 1" #serial1 formControlName="serial1" minlength="2" maxlength="2" required>
+                           <mat-icon matSuffix color="primary">input</mat-icon>
+                           <mat-hint>Ex: AZ</mat-hint>
+                           <mat-error *ngIf="serialForm.get('serial1').hasError('required')">
+                              Serial 1 is <strong>required</strong>
+                           </mat-error>     
+                           <mat-error *ngIf="serialForm.get('serial1').hasError('minlength')">
+                              Please enter only <strong>2 digits</strong> alphabet
+                           </mat-error>   
+                           <mat-error *ngIf="serialForm.get('serial1').hasError('maxlength')">
+                              Please enter max <strong>2 digits</strong> alphabet
+                           </mat-error>                   
+                        </mat-form-field>
+
+                        <mat-form-field class="serial__input" appearance="fill">
+                           <span matPrefix class="serial__form-prefix" *ngIf="serial1.value">{{ serial1.value }} - </span>
+                           <mat-label>Serial 2</mat-label>
+                           <input matInput type="number" placeholder="Serial 2" formControlName="serial2" min="6" max="6" required>
+                           <mat-icon matSuffix color="primary">input</mat-icon>
+                           <mat-hint>Ex: 300200</mat-hint>
+                           <mat-error *ngIf="serialForm.get('serial2').hasError('required')">
+                              Serial 2 is <strong>required</strong>
+                           </mat-error>
+                           <mat-error *ngIf="serialForm.get('serial2').hasError('minlength')">
+                              Please enter only <strong>6 digits</strong> alphabet
+                           </mat-error>   
+                           <mat-error *ngIf="serialForm.get('serial2').hasError('maxlength')">
+                              Please enter max <strong>6 digits</strong> alphabet
+                           </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="serial__input" appearance="fill">
+                           <mat-label>Volume</mat-label>
+                           <input matInput type="number" placeholder="Volume" formControlName="volume" required>
+                           <mat-icon matSuffix color="primary">ballot</mat-icon>
+                           <mat-hint>Ex: 100 (Will register AZ300200 - AZ300300)</mat-hint>
+                           <mat-error *ngIf="serialForm.get('volume').hasError('required')">
+                              Volume is <strong>required</strong>
+                           </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="serial__input" appearance="fill">
+                           <mat-label>Market</mat-label>
+                           <mat-select formControlName="market">
+                             <mat-option *ngFor="let market of markets" [value]="market.area">
+                                 {{ market.area }}
+                             </mat-option>
+                           </mat-select>
+                        </mat-form-field>
+
+                        <button mat-raised-button class="serial__form-button" type="submit" [disabled]="serialForm.invalid" color="primary">
+                           <mat-icon>check_circle</mat-icon>
+                           Generate Serial No
+                        </button>
+
+                     </div>
+
+                  </form>
+               </div>
+            
+            </mat-card-content>
+         </mat-card>
+      </div>
+
+   </div>
+
+   <div class="content_100pct" *ngIf="serials" fxLayout="column" fxLayoutAlign="center center">
+      <div class="card">
+
+         <mat-card>
+            <mat-card-title>SERIAL NUMBER GENERATED</mat-card-title>
+            <mat-card-content>
+               <div class="serial__save-result" >
+                  <mat-list>
+                     <mat-list-item *ngFor="let result of newSerials">
+                        <mat-icon mat-list-icon>view_list</mat-icon>
+                        <h4 mat-line>{{ result.serial | titlecase }}</h4>
+                        <p mat-line> {{ result.market | titlecase }} </p>
+                     </mat-list-item>
+                  </mat-list>
+               </div>
+            </mat-card-content>
+         </mat-card>
+      
+      </div>               
+   </div>
+
+   <mat-divider></mat-divider>
+
+   <div class="content_100pct">
+      <app-admin-serial-table></app-admin-serial-table>
+   </div>
+   
+</div>
+

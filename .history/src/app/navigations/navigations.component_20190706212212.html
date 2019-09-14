@@ -1,0 +1,81 @@
+<div class="lm__container-100p">
+
+   <div class="nav">
+
+      <div class="nav__toolbar">
+         <mat-toolbar color="primary">
+            <button
+               type="button"
+               aria-label="Toggle sidenav"
+               mat-icon-button
+               (click)="drawer.toggle()"
+               *ngIf="isHandset$ | async">
+               <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>azrin.dev</span>
+         </mat-toolbar>  
+      </div> 
+
+      <div class="nav__divider"></div>
+
+      <div class="nav__sidenav">
+         <mat-sidenav-container hasBackdrop="false"> 
+            <mat-sidenav #drawer 
+               [ngClass]="{ 'nav__sidenav-drawer': !sideNavIcon, 'nav__sidenav-drawer-icon': sideNavIcon}" 
+               fixedInViewport
+               attr.role="navigation" 
+               [@fadeOut]="sideNavIcon"                  
+               mode="over"
+               [opened]="opened">
+               <mat-toolbar>
+                  <mat-toolbar-row fxLayout fxLayoutAlign="center center">
+                     <span fxFlex="90" fxLayout fxLayoutAlign="start center" *ngIf="!sideNavIcon">Menu</span>
+                     <span fxFlex="10" fxLayout fxLayoutAlign="center center" *ngIf="sideNavIcon">
+                        <button mat-icon-button (click)="closeSidenav()">
+                           <mat-icon  color="primary">chevron_right</mat-icon>
+                        </button>
+                     </span>
+                     <span fxFlex="10" fxLayout fxLayoutAlign="center center" *ngIf="!sideNavIcon">
+                           <button mat-icon-button (click)="closeSidenav()">
+                              <mat-icon  color="primary">close</mat-icon>
+                           </button>
+                     </span>
+                  </mat-toolbar-row>   
+               </mat-toolbar>
+               <mat-nav-list >
+
+                  <!-- Sidenav Menu List  -->
+                  <div class="links" *ngFor="let link of links">
+                     <a mat-list-item href="#" >
+                        <div class="text" fxFlex="90" *ngIf="!sideNavIcon">{{ link.path }}</div>
+                        <mat-icon fxFlex="10" color="primary">{{ link.data.icon }}</mat-icon>
+                     </a> 
+                  </div>
+                  <!-- <a mat-list-item href="#">
+                     <div class="text" fxFlex="90" *ngIf="!sideNavIcon">Profile </div>
+                     <mat-icon fxFlex="10" color="primary">account_circle</mat-icon>
+                  </a> 
+                  <a mat-list-item href="#">
+                     <div class="text" fxFlex="90" *ngIf="!sideNavIcon">Cart </div>
+                     <mat-icon fxFlex="10" color="primary">shopping_cart</mat-icon>
+                  </a> 
+                  <a mat-list-item href="#">
+                     <div class="text" fxFlex="90" *ngIf="!sideNavIcon">Settings </div>
+                     <mat-icon fxFlex="10" color="primary">settings</mat-icon>
+                  </a>  -->
+
+               </mat-nav-list>               
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+
+               <!-- Add Content Here -->
+               <router-outlet></router-outlet> 
+
+            </mat-sidenav-content>
+
+         </mat-sidenav-container>
+      </div>  
+
+   </div>
+</div>

@@ -1,0 +1,24 @@
+// Material Theming
+@import '~@angular/material/theming';
+@import './_red-style';
+
+
+// Custom SA Theming
+@import './sa-theming';
+@import './_gold-style';
+
+// ANGULAR MATERIAL THEME
+@include mat-core();
+// THEME-red
+$primary: mat-palette($mat-red);
+$accent:  mat-palette($mat-pink, A200, A100, A400);
+$red-theme:   mat-dark-theme($primary, $accent);
+@include mixin-red-style($red-theme);
+
+// CUSTOM THEME
+// THEME-gold
+$primary: mat-palette($mat-gold);
+$accent:  mat-palette($mat-pink, A200, A100, A400);
+$gold-theme:   mat-dark-theme($primary, $accent);
+@include mixin-gold-style($gold-theme);
+

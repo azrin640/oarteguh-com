@@ -1,0 +1,52 @@
+<div class="lm__page-100p profile" fxLayout="row" fxLayout.xs="column">
+
+   <div fxFlex="60" fxFlex.xs="100" class="timeline">
+
+      <div class="posts" *ngFor="let row of posts">
+
+         <mat-card fxLayout="column" class="timeline__card">         
+            <img mat-card-image *ngIf="!row.post.image" src="{{ row.post.image }}" alt="">
+            <mat-card-header>
+               <img mat-card-avatar clas="lm__avatar" src="{{ row.poster.avatar }} || assets/man.png">
+               <mat-card-title class="lm__profile-title">
+                  <a class="lm__a" matTooltip="Go to this user profile"
+                     routerLink="{{ row.poster.slug }}"
+                  >                  
+                     {{ row.poster.name | titlecase }}
+                  </a>
+               </mat-card-title>
+               <mat-card-subtitle>{{ row.poster.about | titlecase | slice:0:50 }}</mat-card-subtitle>
+               <mat-card-subtitle>Posted on: {{ row.post.date | date:'d/M/y, h:mm:ss a' }} </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-title color="primary">
+               <a class="lm__a" matTooltip="Go to this post"
+                  routerLink="/post/{{ row.post.slug }}"
+               >
+                  {{ row.post.title | titlecase }}
+               </a>
+            </mat-card-title>
+            <mat-card-subtitle>{{ row.post.subtitle | titlecase }}</mat-card-subtitle>
+            <mat-card-content> 
+               {{ row.post.content | slice:0:200 }} ...
+               <button mat-button color="primary" routerLink="">Read More</button>
+            </mat-card-content>
+         </mat-card>
+
+      </div>
+   </div>
+
+   <div fxFlex="40" fxFlex.xs="100" class="sidebar">
+      <mat-card class="sidebar__card">
+
+         <mat-card-title>Sidebar Title</mat-card-title>
+
+         <mat-card-content>
+         
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet diam eget eros iaculis semper in sit amet metus. Cras leo enim, ultricies a ullamcorper at, porta eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie dolor augue, sed gravida lectus venenatis et. Etiam at venenatis nisl. Fusce est ante, porttitor at dui ut, vestibulum luctus eros. Etiam sollicitudin, odio sagittis posuere luctus, enim ante ultricies ligula, vel sagittis eros metus quis lorem. Aenean vel porta orci, nec lobortis orci. Phasellus nec volutpat mauris. Donec sit amet leo sed metus porta suscipit pharetra pretium mauris. Nulla rhoncus ut leo eget lacinia. Phasellus sollicitudin pellentesque elit, vitae rutrum arcu ultricies ac. Aenean sagittis condimentum nulla, cursus iaculis enim posuere a. Morbi tellus est, vulputate eu felis nec, finibus tempus diam. Mauris tincidunt tincidunt felis, a tempor urna semper nec.
+            
+         </mat-card-content>
+      </mat-card>
+   </div>
+
+</div>
+
