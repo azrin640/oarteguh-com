@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import './app/scss/index.scss';
+
+$primary: #fe4365;
+$white:#fff;
+$primary-light: #fc9d9a;
+$accent: #ff8943;
+$accent-light: #ff884365;
+$warn: #f44336;
+$dark-dark-bg: #262626;
+$dark-bg: #303030;
+$dark-light-bg: #424242;
+$font: rgba(255, 255, 255, 0.7);
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Lato, Oswald, Roboto, "Helvetica Neue", sans-serif; background-color: $dark-light-bg }
+.mat-list-item-content{
+   padding-right: 0 !important; 
+   padding-left: 0 !important; 
+}
+.mat-form-field-wrapper{
+   width: 100% !important;
+}
+
+.mat-form-field-infix{
+   width: 100% !important;
+}
+
+.ck-editor__editable_inline {
+   min-height: 500px;
+  color: #303030;
+}
+
+.angular-editor-toolbar{
+   background-color: transparent !important;
+}
+
+.angular-editor-button{
+   color: #303030;
+}
+
+

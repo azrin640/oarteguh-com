@@ -1,0 +1,12 @@
+<div class="lm__posts">
+   <div class="lm__posts_list">
+      <mat-selection-list >
+         <mat-list-option *ngFor="let post of posts">
+            <mat-icon mat-list-icon>book</mat-icon>
+            <h4 mat-line>{{ post.title | titlecase }}</h4>
+            <p mat-line>{{ post.subtitle | titlecase }}</p>
+            <mat-divider></mat-divider>
+         </mat-list-option>
+      </mat-selection-list>
+   </div>
+</div>

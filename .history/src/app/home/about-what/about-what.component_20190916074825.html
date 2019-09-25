@@ -1,0 +1,39 @@
+<div class="lm__container-light-bg">
+
+      <div class="lm__cards">
+   
+         <div class="lm__cards-title">
+            WHAT I DO
+         </div>
+   
+         <div class="lm__cards-container" 
+               fxLayout="row wrap"
+               fxLayoutAlign="space-evenly center"
+               fxLayoutGap="10px"
+         >
+            <mat-card   class="shadow__png-ac-right"
+                        *ngFor="let what of descriptions"
+                        fxFlex="20"
+                        fxFlex.sm="50"
+                        fxFlex.xs="100"
+                        fxLayout="column"
+                        fxLayoutAlign="center center"
+            >
+               <img  class="shadow__png-ac-right"
+                     mat-card-sm-image 
+                     src="assets/icons/{{ what.image }}" 
+                     alt="{{ what.title }}"
+               >               
+               <mat-card-content>
+                     <mat-card-title>
+                        {{ what.title }}
+                     </mat-card-title>
+               </mat-card-content>
+   
+            </mat-card>
+         </div>
+   
+      </div>
+      
+   </div>
+   

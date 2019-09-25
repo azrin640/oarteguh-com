@@ -1,0 +1,21 @@
+<div class="lm__posts">
+   <div class="lm__posts_list">
+      <mat-list >
+         <mat-list-item *ngFor="let post of posts">
+            <div class="lm__posts-list-item">
+               <div fxFlex="60">
+                  <mat-icon mat-list-icon>book</mat-icon>
+                  <h4 mat-line>{{ post.title | titlecase }}</h4>
+                  <p mat-line> {{ post.subtitle | titlecase }}</p>
+               </div>
+               <div fxFlex="40">
+                  <button mat-icon-button>
+                     <mat-icon>edit</mat-icon>
+                  </button>
+               </div>
+            </div>
+            <mat-divider></mat-divider>
+         </mat-list-item>
+      </mat-list>
+   </div>
+</div>

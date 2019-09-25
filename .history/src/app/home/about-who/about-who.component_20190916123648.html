@@ -1,0 +1,39 @@
+<div class="lm__container-light-bg">
+
+   <div class="lm__cards">
+
+      <div class="lm__cards-title mat-elevation-z8">
+         WHO AM I
+      </div>
+
+      <div class="lm__cards-container mat-elevation-z30" 
+            fxLayout="row wrap"
+            fxLayoutAlign="space-evenly center"
+            fxLayoutGap="10px"
+      >
+         <mat-card   class="shadow__png-ac-right"
+                     *ngFor="let who of descriptions"
+                     fxFlex="20"
+                     fxFlex.sm="50"
+                     fxFlex.xs="100"
+                     fxLayout="column"
+                     fxLayoutAlign="center center"
+         >
+            <img  class="shadow__png-ac-right"
+                  mat-card-sm-image 
+                  src="assets/icons/{{ who.image }}" 
+                  alt="{{ who.title }}"
+            >
+            <mat-card-title>
+               {{ who.title }}
+            </mat-card-title>
+            <mat-card-content>
+               {{ who.description }}
+            </mat-card-content>
+
+         </mat-card>
+      </div>
+
+   </div>
+   
+</div>

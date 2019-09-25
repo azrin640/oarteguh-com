@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { AuthService } from './services/auth/auth.service';
-import { AuthGuardService } from './services/auth-guard/auth-guard.service';
-import { AdminAuthGuardService } from './services/admin-auth-guard/admin-auth-guard.service';
+import { AuthService } from './configurations/services/auth/auth.service';
+import { AuthGuardService } from './configurations/services/auth-guard/auth-guard.service';
+import { AdminAuthGuardService } from './configurations/services/admin-auth-guard/admin-auth-guard.service';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -49,13 +49,23 @@ import { ChipTagsComponent } from './admin/admin-post/form-post/chip-tags/chip-t
 import { Logo2remLightComponent } from './logo/logo2rem-light/logo2rem-light.component';
 import { PreviewPostComponent } from './admin/admin-post/form-post/preview-post/preview-post.component';
 import { TestComponent } from './test/test.component';
-import { AngularEditorModule } from './angular-editor/angular-editor.module';
+import { AngularEditorModule } from './configurations/angular-editor/angular-editor.module';
 import { NgmEditorModule } from './ngm-editor/ngm-editor.module';
 import { AboutComponent } from './about/about.component';
 import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { SalesPageComponent } from './sales-page/sales-page.component';
 import { WebsiteComponent } from './sales-page/website/website.component';
+import { BannerComponent } from './banner/banner.component';
+import { AboutWhoComponent } from './home/about-who/about-who.component';
+import { AboutWhatComponent } from './home/about-what/about-what.component';
+import { PostsComponent } from './posts/posts.component';
+import { BannerFullComponent } from './home/banner-full/banner-full.component';
+import { PostCommentsComponent } from './post/post-comments/post-comments.component';
+import { AdminPostsComponent } from './admin/admin-posts/admin-posts.component';
+import { AdminPostEditComponent } from './admin/admin-post/admin-post-edit/admin-post-edit.component';
+import { AdminPostEditPreviewComponent } from './admin/admin-post/admin-post-edit/admin-post-edit-preview/admin-post-edit-preview.component';
+import { AdminPostEditFormComponent } from './admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component';
 
 export function tokenGetter(){
    return localStorage.getItem('access_token');
@@ -102,7 +112,17 @@ export function tokenGetter(){
     PostComponent,
     CommentsComponent,
     SalesPageComponent,
-    WebsiteComponent
+    WebsiteComponent,
+    BannerComponent,
+    AboutWhoComponent,
+    AboutWhatComponent,
+    PostsComponent,
+    BannerFullComponent,
+    PostCommentsComponent,
+    AdminPostsComponent,
+    AdminPostEditComponent,
+    AdminPostEditPreviewComponent,
+    AdminPostEditFormComponent
   ],
   imports: [
     BrowserModule,

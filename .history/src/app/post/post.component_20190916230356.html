@@ -1,0 +1,184 @@
+<div class="lm__container-light-bg">
+
+      <div class="lm__cards-container mat-elevation-z8" 
+            fxLayout="row wrap"
+            fxLayoutAlign="space-evenly center"
+            fxLayoutGap="10px"
+      >
+
+         <mat-card   class="lm__card timeline__card x-enter shadow__png-ac-right" 
+                     fxFlex="60"
+                     fxFlex.xs="100"
+         >   
+            
+            <!-- Owner  -->
+            <div class="lm__posts-card-header" fxLayout="row" fxLayoutAlign="start">
+               <div fxFlex="5" fxFlexAlign="start">
+                  <!-- Profile Image -->
+                  <img mat-card-avatar id="{{ post.image }}" class="lm__avatar" src="assets/images/uploads/{{ post.owner.image }}" >
+               </div>
+               <div class="lm__profile-info" fxFlexAlign="start">    
+                  <!-- Profile Name  -->
+                  <mat-card-title class="lm__profile-title">
+                     <a class="lm__a" matTooltip="Go to this user profile"
+                        routerLink="user/profile/{{ post.owner.name }}/{{ post.owner.id }}"
+                     >                  
+                        {{ post.owner.name | titlecase }}
+                     </a>
+                  </mat-card-title>                                   
+                  <!-- Profile Motto -->
+                  <mat-card-subtitle>
+                     "{{ post.owner.country | titlecase | slice:0:50 }}"
+                     <br>
+                     <!-- Post Date  -->
+                     <em>Posted on: {{ post.created| date:'d/M/y, h:mm:ss a' }}</em> 
+                  </mat-card-subtitle>
+               </div>
+            </div>
+
+            <!-- Card Image  -->
+            <div  id="{{ post.image }}"
+                  @imageEnter
+                  *ngIf="post.image ? true : elseBlock"                                 
+            >
+               <img mat-card-image                                      
+                  class="image-enter lm__card-image" 
+                  src="assets/images/uploads/{{ post.image }}" 
+                  alt="{{ post.image | titlecase }}" 
+                  (mouseout)="mouseLeaveImage($event)"                  
+               >                                      
+            </div> 
+            <ng-template #elseBlock >
+               <div id="{{ post.image }}" 
+                  *ngIf="post.image"
+                  (mouseenter)="mouseEnterImage($event)" 
+               >
+                  <img mat-card-image  
+                     src="{{ post.image }}" 
+                     alt="{{ post.image | titlecase }}"               
+                  > 
+               </div>
+            </ng-template> 
+
+            <!-- Post Title  -->
+            <mat-card-title color="primary" class="lm__a-primary">
+               <a [@xEnter]="postsExist" class="lm__a" matTooltip="Go to this post"
+                  routerLink="{{ post.slug }}"
+               >
+                  {{ post.title | titlecase }}
+               </a>
+            </mat-card-title>
+
+            <!-- Post Subtitle  -->
+            <mat-card-subtitle>{{ post.subtitle | titlecase }}</mat-card-subtitle>
+
+            <!-- Post Categories  -->
+            <mat-card-content>
+               <div class="lm__mat-chip" fxLayout="row wrap" fxLayoutAlign="start center">
+                  <span class="lm__post-chip-categories">Categories: </span>
+                  <mat-chip-list>
+                     <mat-chip 
+                        *ngFor="let chip of post.categories" 
+                        color="primary" 
+                        selected
+                        routerLink="/posts/tags/tag/{{ chip.categories | lowercase }}"
+                        matTooltip="Go to this Category"
+                     >
+                        {{ chip | titlecase }}
+                     </mat-chip>
+                  </mat-chip-list>
+               </div>
+            </mat-card-content> 
+
+            <!-- Contents  -->
+            <div id="{{ post.id }}" (mouseenter)="mouseEnterCard($event)" >                  
+
+               <!-- Post Social -->
+               <mat-card-content>
+                  <div class="lm__icons" fxLayout="row" fxLayoutAlign="center center"> 
+
+                     <!-- Liked  -->
+                     <div class="lm__icon-badge">
+                        <mat-icon matBadge="{{ post.vote.length }}"             
+                           matBadgeColor="accent"
+                           matTooltip="Like and Dislike"
+                        >
+                           thumbs_up_down
+                        </mat-icon>
+                     </div>
+
+                     <!-- Post Shared  -->
+                     <div class="lm__icon-badge">
+                        <mat-icon matBadge="{{ post.shared }}"             
+                           matBadgeColor="accent"
+                           matTooltip="Shared"
+                        >
+                           share
+                        </mat-icon>
+                     </div>
+
+                     <!-- Post Comment  -->
+                     <div class="lm__icon-badge">
+                        <mat-icon matBadge="{{ post.comments.length }}" 
+                           matBadgeColor="accent"
+                           matTooltip="Comments"
+                        >
+                           comment
+                        </mat-icon>
+                     </div>
+                     
+                  </div>                           
+                  
+                  <!-- Post Content  -->
+                  <div class="lm__posts-content lm__text-capitalize">          
+                     {{ post.content | slice:0:300 }} ...
+                     <button  class="lm__a-button" 
+                              mat-button color="accent" 
+                              routerLink="/post/{{ post.owner.name }}/{{ post.id }}/{{ post.title }}"
+                     >
+                        Read More
+                     </button>
+                  </div>     
+                  
+                  <!-- Post Tags  -->
+                  <div class="lm__mat-chip" fxLayout fxLayoutAlign="start center">
+                     <span class="lm__post-chip-categories">Tags: </span>
+                     <mat-chip-list>
+                        <mat-chip class="lm__mat-chip-list" 
+                           *ngFor="let tag of post.tags" 
+                           color="accent" 
+                           selected
+                           routerLink="/posts/tags/tag/{{ tag.tags | lowercase }}"
+                           matTooltip="Go to this tag"
+                        >
+                           {{ tag | titlecase }}
+                        </mat-chip>
+                     </mat-chip-list>
+                  </div>
+               </mat-card-content>
+               
+               <!-- Post Link  -->
+               <mat-card-actions>
+                  <div class="lm__card-actions" 
+                     fxLayout="row"                    
+                     fxLayoutAlign="center center" 
+                     @iconButtonEnter 
+                     *ngIf="postId === post.id"     
+                  >
+                     <button class="lm__card-button x-button-enter" 
+                        mat-raised-button color="primary"
+                        matTooltip="Go to this post"
+                        routerLink="/post/{{ post.owner.name }}/{{ post.id }}/{{ post.title }}"
+                     >
+                        <mat-icon class="y-icon-enter">touch_app</mat-icon>
+                        Read More
+                     </button>
+                  </div>
+               </mat-card-actions>
+            </div> 
+
+         </mat-card>
+
+      </div>
+  
+</div>
