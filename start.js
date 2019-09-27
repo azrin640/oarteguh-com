@@ -26,8 +26,9 @@ require('./server/models/Like');
 
 // Start our app!
 const app = require('./app');
+const https = require('https');
 app.set('port', process.env.PORT || 7777);
-const server = app.listen(app.get('port'), () => {
+const server = https.createServer(app).listen(app.get('port'), () => {
   console.log(`Express running → PORT ${server.address().port}`);
 });
 
