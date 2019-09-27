@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'dist/azrin-dev/')));
 
 // Return other routes to Angular index file
 // app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'dist/boilerplate/index.html'));
+//     res.sendFile(path.join(__dirname, './dist/azrin-dev/index.html'));
 // });
 
 // Takes the raw requests and turns them into usable properties on req.body
@@ -52,7 +52,7 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-// // Passport JS is what we use to handle our logins
+// Passport JS is what we use to handle our logins
 app.use(passport.initialize());
 app.use(passport.session());
 
