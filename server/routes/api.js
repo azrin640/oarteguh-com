@@ -22,7 +22,7 @@ var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 passport.use(new LinkedInStrategy({
          clientID: process.env.LINKEDIN_KEY,
          clientSecret: process.env.LINKEDIN_SECRET,
-         callbackURL: 'https://biz.azrin.dev/user/login',
+         callbackURL: 'https://biz.azrin.dev/api/user/linkedin',
          scope: ['r_emailaddress', 'r_basicprofile'],
          state: true
       }, 
