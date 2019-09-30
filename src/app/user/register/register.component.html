@@ -2,7 +2,7 @@
 
    <div fxLayout="column" fxLayoutAlign="center center">
 
-         <app-logo4rem></app-logo4rem>
+         <app-main-logo></app-main-logo>
 
       <div class="card">
          <mat-card>
@@ -57,6 +57,13 @@
                </div>
 
             </mat-card-content>
+
+            <mat-card-actions>
+               <mat-divider></mat-divider>
+               <span>If you have already registered:</span>
+               <button mat-button routerLink="/user/login">Login</button>
+            </mat-card-actions>
+            
          </mat-card>
       </div>
    </div>

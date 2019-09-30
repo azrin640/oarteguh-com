@@ -66,6 +66,8 @@ import { AdminPostsComponent } from './admin/admin-posts/admin-posts.component';
 import { AdminPostEditComponent } from './admin/admin-post/admin-post-edit/admin-post-edit.component';
 import { AdminPostEditPreviewComponent } from './admin/admin-post/admin-post-edit/admin-post-edit-preview/admin-post-edit-preview.component';
 import { AdminPostEditFormComponent } from './admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
+import { MainLogoComponent } from './logo/main-logo/main-logo.component';
 
 export function tokenGetter(){
    return localStorage.getItem('access_token');
@@ -122,7 +124,9 @@ export function tokenGetter(){
     AdminPostsComponent,
     AdminPostEditComponent,
     AdminPostEditPreviewComponent,
-    AdminPostEditFormComponent
+    AdminPostEditFormComponent,
+    ForgotPasswordComponent,
+    MainLogoComponent
   ],
   imports: [
     BrowserModule,

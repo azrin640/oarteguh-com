@@ -2,7 +2,7 @@
 
    <div fxLayout="column" fxLayoutAlign="center center">
 
-      <app-logo4rem></app-logo4rem>
+      <app-main-logo></app-main-logo>
 
       <div class="card">
          <mat-card>
@@ -17,11 +17,17 @@
 
                      <div fxLayout="column" fxLayoutAlign="center center">
 
-                        <mat-form-field class="login__input" appearance="fill">
+                        <mat-form-field class="lm__form-input" appearance="fill">
                            <mat-label>Email</mat-label>
-                           <input matInput placeholder="Email" #email formControlName="email" required autocomplete="email">
+                           <input   matInput                                     
+                                    placeholder="Email" 
+                                    #email 
+                                    formControlName="email" 
+                                    required autocomplete="email"
+                           >
                            <mat-icon matSuffix color="primary">alternate_email</mat-icon>
                            <mat-hint>Enter email here</mat-hint>
+
                            <mat-error *ngIf="loginForm.get('email').hasError('required')">
                               Email is <strong>required</strong>
                            </mat-error>
@@ -30,9 +36,15 @@
                            </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field class="login__input" appearance="fill">
+                        <mat-form-field class="lm__form-input" appearance="fill">
                            <mat-label>Password</mat-label>
-                           <input matInput type="password" placeholder="Password" formControlName="password" required autocomplete="password">
+                           <input   matInput                                     
+                                    type="password" 
+                                    placeholder="Password" 
+                                    formControlName="password" 
+                                    required 
+                                    autocomplete="password"
+                           >
                            <mat-icon matSuffix color="primary">vpn_key</mat-icon>
                            <mat-hint>Enter password here</mat-hint>
                            <mat-error *ngIf="loginForm.get('password').hasError('required')">
@@ -40,7 +52,7 @@
                            </mat-error>
                         </mat-form-field>
 
-                        <button mat-raised-button class="login__form-button" type="submit" [disabled]="loginForm.invalid" color="primary" >
+                        <button mat-raised-button class="lm__form-button" type="submit" [disabled]="loginForm.invalid" color="primary" >
                            <mat-icon>check_circle</mat-icon>
                            Login
                         </button>
@@ -51,9 +63,22 @@
 
                   </form>
 
-               </div>
+               </div>               
 
             </mat-card-content>
+
+            <mat-card-actions>
+               <button mat-button class="lm__form-button-linkedin" (click)="signInLinkedin()">
+                  <img src="assets/logo_icons/Sign-In-Small---Default.png" alt="">
+               </button>
+            </mat-card-actions>
+
+            <mat-card-footer>
+               <mat-divider></mat-divider>
+               <button mat-button routerLink="/user/forgot-password">Forgot Password</button>
+               <span> | </span>
+               <button mat-button routerLink="/user/register">Register</button>
+            </mat-card-footer>
          </mat-card>
       </div>
    </div>

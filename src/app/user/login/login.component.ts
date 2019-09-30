@@ -43,4 +43,13 @@ export class LoginComponent implements OnInit {
      this.profileService.login(this.loginForm.value);
   }
 
+  signInLinkedin(){
+     console.log('Linkedin');
+     this.profileService.loginLinkedin().subscribe(
+        (response: any) => {
+           console.log(response);
+        }
+     )
+  }
+
 }

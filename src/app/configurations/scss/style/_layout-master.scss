@@ -41,14 +41,9 @@
       }
 
       &__logo{
-         
-         &-4rem{
-            font-family: 'Luckiest Guy', cursive;
-            color: $primary;   
-            font-size: 4rem;  
-            padding-top: 10px; 
-            padding-bottom: 10px;
-         }
+
+         width: 300px;
+         height: auto;
 
          &-3rem{
             font-family: 'Luckiest Guy', cursive;
@@ -363,6 +358,20 @@
 
          &-item{
             padding: 20px 0 20px 0;
+         }
+
+         &-button{
+            width: 100%;
+            margin-top: 10px !important;
+         }
+
+         &-button-linkedin{
+            width: 100%;
+            height: auto;
+         }
+
+         &-button-linkedin:hover{
+            transform: translate(1.2);
          }
 
          &-button-label{

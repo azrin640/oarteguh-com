@@ -16,6 +16,12 @@ var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
 
 //  ** USER **
+
+router.get('/user/linkedin', 
+   userController.authLinkedin,
+   userController.redirectLinkedin
+);
+
 router.post('/user/location', 
    catchErrors(userController.reqLocation)
 );
@@ -41,8 +47,7 @@ router.post('/user/login',
 );
 
 router.post('/user/forgot-password',
-    userController.reqValidateForgotPassword,
-    validateController.validationErrors,
+    validateController.reqValidateForgotPassword,
     catchErrors(userController.forgotPassword)
 );
 
@@ -120,6 +125,8 @@ router.post('/user/profile/image',
     userController.resize,
     catchErrors(userController.saveProfileImage)
 );
+
+
 
 
 // ** POSTS **

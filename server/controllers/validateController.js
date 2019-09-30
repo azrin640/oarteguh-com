@@ -100,6 +100,19 @@ exports.reqValidateProfile = (req, res, next) => {
    return next();
 };
 
+exports.reqValidateForgotPassword = (req, res, next) => {
+   req.sanitizeBody('email').normalizeEmail({
+      remove_dots: false,
+      remove_extensions: false,
+      gmail_remove_subaddress: false 
+   });
+
+   const errors = req.body.validationErrors;  
+   if (errors) {
+      return res.json({ errors: errors.array(), status: 422 }) } 
+   return next();
+};
+
 // Post 
 exports.reqValidateNewPost = (req, res, next) => {   
    req.sanitizeBody('title');

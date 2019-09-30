@@ -152,6 +152,18 @@ export class ProfileService {
       );
    }
 
+   forgotPassword(email){
+      return this.http.post('/api/user/forgot-password', { email }).pipe(
+         catchError(error => throwError(error))
+      );
+   }
+
+   loginLinkedin(){
+      return this.http.get('/api/user/linkedin').pipe(
+         catchError(error => throwError(error))
+      );
+   }
+
   logout()
   {
       localStorage.removeItem('token');

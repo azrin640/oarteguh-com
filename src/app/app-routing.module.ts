@@ -23,6 +23,7 @@ import { WebsiteComponent } from './sales-page/website/website.component';
 import { PostsComponent } from './posts/posts.component';
 import { AdminPostsComponent } from './admin/admin-posts/admin-posts.component';
 import { AdminPostEditComponent } from './admin/admin-post/admin-post-edit/admin-post-edit.component';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { name: 'Home', icon: 'home', tooltip: 'Home Page', type: 'public' } },    
@@ -32,6 +33,7 @@ export const routes: Routes = [
   
   { path: 'posts/tags/tag/:tag', component: TagsComponent, data: { name: 'Tag', icon: 'dashboard', tooltip: 'Tag Page', type: 'user' } }, 
   { path: 'user/login', component: LoginComponent, data: { name: 'Login', icon: 'person', tooltip: 'Login Page', type: 'auth' } },
+  { path: 'user/forgot-password', component: ForgotPasswordComponent, data: { name: 'Forgot Password', icon: 'person', tooltip: 'Forgot Password', type: 'user' } }, 
   { path: 'post/:user/:id/:title', component: PostComponent, data: { name: 'Post', icon: 'menu_book', tooltip: 'Post', type: 'auth' } },
   { path: 'user/register', component: RegisterComponent, data: { name: 'Register', icon: 'person_add', tooltip: 'Register Page', type: 'auth' } },
   { path: 'user/register/token/:authToken', component: AuthRegisterComponent, data: { name: 'Register', icon: 'person_add', tooltip: 'Authentication Register Page', type: 'auth' } },

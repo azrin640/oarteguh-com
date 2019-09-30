@@ -315,7 +315,18 @@ module.exports = "<div class=\"lm__logo-2rem\">\n   azrin.dev\n</div>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"lm__logo-3rem\">\n   azrin.dev\n</div>\n"
+module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n   <img  class=\"lm__logo\"\n         alt=\"\"\n         src=\"assets/logo_icons/logo-azrin-dev.png\" \n   >\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/logo/main-logo/main-logo.component.html":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/logo/main-logo/main-logo.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n   <img  class=\"lm__logo\"\n         alt=\"\"\n         src=\"{{ logo }}\" \n   >\n</div>\n"
 
 /***/ }),
 
@@ -495,6 +506,17 @@ module.exports = "<div class=\"lm__page-min70vh-hidden\" fxLayout=\"column\" fxL
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/user/forgot-password/forgot-password.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/user/forgot-password/forgot-password.component.html ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n      <app-main-logo></app-main-logo>\n\n      <div class=\"card\">\n         <mat-card>\n\n            <mat-card-title>\n               Forgot Password \n            </mat-card-title>\n\n            <mat-card-content>\n               <div class=\"lm__form\">\n                  <form [formGroup]=\"loginForm\" (ngSubmit)=\"login()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"login__input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input   matInput class=\"lm__form-input\" \n                                    placeholder=\"Email\" \n                                    #email \n                                    formControlName=\"email\" \n                                    required autocomplete=\"email\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"lm__form-button\" type=\"submit\" [disabled]=\"loginForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Submit\n                        </button>\n\n                     </div>\n\n                     {{ loginForm.errors }}\n\n                  </form>\n               </div>  \n            </mat-card-content>\n\n            <mat-card-actions fxLayout=\"rows\" fxLayoutAlign=\"center\">\n               <div class=\"lm__form-footer\">\n                  <mat-divider></mat-divider>\n                  <button mat-button routerLink=\"/user/login\">\n                     Login\n                  </button>\n                  <span> | </span>\n                  <button mat-button routerLink=\"/user/register\">\n                     Register\n                  </button>\n               </div>\n            </mat-card-actions>\n\n         </mat-card>\n      </div>\n   </div>\n\n</div>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/user/login/login.component.html":
 /*!***************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/user/login/login.component.html ***!
@@ -502,7 +524,7 @@ module.exports = "<div class=\"lm__page-min70vh-hidden\" fxLayout=\"column\" fxL
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n      <app-logo4rem></app-logo4rem>\n\n      <div class=\"card\">\n         <mat-card>\n            <mat-card-title>\n               Login Form \n            </mat-card-title>\n            <mat-card-content>\n\n               <div class=\"login__form\">\n\n                  <form [formGroup]=\"loginForm\" (ngSubmit)=\"login()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"login__input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input matInput placeholder=\"Email\" #email formControlName=\"email\" required autocomplete=\"email\">\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <mat-form-field class=\"login__input\" appearance=\"fill\">\n                           <mat-label>Password</mat-label>\n                           <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" required autocomplete=\"password\">\n                           <mat-icon matSuffix color=\"primary\">vpn_key</mat-icon>\n                           <mat-hint>Enter password here</mat-hint>\n                           <mat-error *ngIf=\"loginForm.get('password').hasError('required')\">\n                              Password is <strong>required</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"login__form-button\" type=\"submit\" [disabled]=\"loginForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Login\n                        </button>\n\n                     </div>\n\n                     {{ loginForm.errors }}\n\n                  </form>\n\n               </div>\n\n            </mat-card-content>\n         </mat-card>\n      </div>\n   </div>\n\n</div>\n"
+module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n      <app-main-logo></app-main-logo>\n\n      <div class=\"card\">\n         <mat-card>\n            <mat-card-title>\n               Login Form \n            </mat-card-title>\n            <mat-card-content>\n\n               <div class=\"login__form\">\n\n                  <form [formGroup]=\"loginForm\" (ngSubmit)=\"login()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"lm__form-input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input   matInput                                     \n                                    placeholder=\"Email\" \n                                    #email \n                                    formControlName=\"email\" \n                                    required autocomplete=\"email\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <mat-form-field class=\"lm__form-input\" appearance=\"fill\">\n                           <mat-label>Password</mat-label>\n                           <input   matInput                                     \n                                    type=\"password\" \n                                    placeholder=\"Password\" \n                                    formControlName=\"password\" \n                                    required \n                                    autocomplete=\"password\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">vpn_key</mat-icon>\n                           <mat-hint>Enter password here</mat-hint>\n                           <mat-error *ngIf=\"loginForm.get('password').hasError('required')\">\n                              Password is <strong>required</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"lm__form-button\" type=\"submit\" [disabled]=\"loginForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Login\n                        </button>\n\n                     </div>\n\n                     {{ loginForm.errors }}\n\n                  </form>\n\n               </div>               \n\n            </mat-card-content>\n\n            <mat-card-actions>\n               <button mat-button class=\"lm__form-button-linkedin\" (click)=\"signInLinkedin()\">\n                  <img src=\"assets/logo_icons/Sign-In-Small---Default.png\" alt=\"\">\n               </button>\n            </mat-card-actions>\n\n            <mat-card-footer>\n               <mat-divider></mat-divider>\n               <button mat-button routerLink=\"/user/forgot-password\">Forgot Password</button>\n               <span> | </span>\n               <button mat-button routerLink=\"/user/register\">Register</button>\n            </mat-card-footer>\n         </mat-card>\n      </div>\n   </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -513,7 +535,7 @@ module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n         <app-logo4rem></app-logo4rem>\n\n      <div class=\"card\">\n         <mat-card>\n            <mat-card-title>\n               Register Form \n            </mat-card-title>\n            <mat-card-content>\n\n               <div>\n\n                  <form [formGroup]=\"registerForm\" (ngSubmit)=\"register()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"register__input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input matInput placeholder=\"Email\" #email formControlName=\"email\" required autocomplete=\"email\">\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n                           <mat-error *ngIf=\"registerForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"registerForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <mat-form-field class=\"register__input\" appearance=\"fill\">\n                           <mat-label>Password</mat-label>\n                           <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" required autocomplete=\"password\">\n                           <mat-icon matSuffix color=\"primary\">vpn_key</mat-icon>\n                           <mat-hint>Enter password here</mat-hint>\n                           <mat-error *ngIf=\"registerForm.get('password').hasError('required')\">\n                              Password is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"registerForm.get('password').hasError('minlength')\">\n                              Minimum password is <strong>{{ registerForm.get('password').errors.minlength.requiredLength }}</strong> characters. Now you entered only <strong>{{ registerForm.get('password').errors.minlength.actualLength }}</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"register__form-button\" type=\"submit\" [disabled]=\"registerForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Register\n                        </button>\n\n                     </div>\n\n                     {{ registerForm.errors }}\n\n                  </form>\n\n               </div>\n\n            </mat-card-content>\n         </mat-card>\n      </div>\n   </div>\n\n</div>\n"
+module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n         <app-main-logo></app-main-logo>\n\n      <div class=\"card\">\n         <mat-card>\n            <mat-card-title>\n               Register Form \n            </mat-card-title>\n            <mat-card-content>\n\n               <div>\n\n                  <form [formGroup]=\"registerForm\" (ngSubmit)=\"register()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"register__input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input matInput placeholder=\"Email\" #email formControlName=\"email\" required autocomplete=\"email\">\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n                           <mat-error *ngIf=\"registerForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"registerForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <mat-form-field class=\"register__input\" appearance=\"fill\">\n                           <mat-label>Password</mat-label>\n                           <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" required autocomplete=\"password\">\n                           <mat-icon matSuffix color=\"primary\">vpn_key</mat-icon>\n                           <mat-hint>Enter password here</mat-hint>\n                           <mat-error *ngIf=\"registerForm.get('password').hasError('required')\">\n                              Password is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"registerForm.get('password').hasError('minlength')\">\n                              Minimum password is <strong>{{ registerForm.get('password').errors.minlength.requiredLength }}</strong> characters. Now you entered only <strong>{{ registerForm.get('password').errors.minlength.actualLength }}</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"register__form-button\" type=\"submit\" [disabled]=\"registerForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Register\n                        </button>\n\n                     </div>\n\n                     {{ registerForm.errors }}\n\n                  </form>\n\n               </div>\n\n            </mat-card-content>\n\n            <mat-card-actions>\n               <mat-divider></mat-divider>\n               <span>If you have already registered:</span>\n               <button mat-button routerLink=\"/user/login\">Login</button>\n            </mat-card-actions>\n            \n         </mat-card>\n      </div>\n   </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1943,6 +1965,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _posts_posts_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./posts/posts.component */ "./src/app/posts/posts.component.ts");
 /* harmony import */ var _admin_admin_posts_admin_posts_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/admin-posts/admin-posts.component */ "./src/app/admin/admin-posts/admin-posts.component.ts");
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit.component.ts");
+/* harmony import */ var _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./user/forgot-password/forgot-password.component */ "./src/app/user/forgot-password/forgot-password.component.ts");
+
 
 
 
@@ -1971,6 +1995,7 @@ const routes = [
     { path: 'contact', component: _contact_form_contact_form_component__WEBPACK_IMPORTED_MODULE_6__["ContactFormComponent"], data: { name: 'Contact Us', icon: 'alternate_email', tooltip: 'Contact Us', type: 'public' } },
     { path: 'posts/tags/tag/:tag', component: _tags_tags_component__WEBPACK_IMPORTED_MODULE_10__["TagsComponent"], data: { name: 'Tag', icon: 'dashboard', tooltip: 'Tag Page', type: 'user' } },
     { path: 'user/login', component: _user_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], data: { name: 'Login', icon: 'person', tooltip: 'Login Page', type: 'auth' } },
+    { path: 'user/forgot-password', component: _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_21__["ForgotPasswordComponent"], data: { name: 'Forgot Password', icon: 'person', tooltip: 'Forgot Password', type: 'user' } },
     { path: 'post/:user/:id/:title', component: _post_post_component__WEBPACK_IMPORTED_MODULE_15__["PostComponent"], data: { name: 'Post', icon: 'menu_book', tooltip: 'Post', type: 'auth' } },
     { path: 'user/register', component: _user_register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"], data: { name: 'Register', icon: 'person_add', tooltip: 'Register Page', type: 'auth' } },
     { path: 'user/register/token/:authToken', component: _user_auth_register_auth_register_component__WEBPACK_IMPORTED_MODULE_12__["AuthRegisterComponent"], data: { name: 'Register', icon: 'person_add', tooltip: 'Authentication Register Page', type: 'auth' } },
@@ -2123,6 +2148,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit.component.ts");
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_preview_admin_post_edit_preview_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit-preview/admin-post-edit-preview.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit-preview/admin-post-edit-preview.component.ts");
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_form_admin_post_edit_form_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component.ts");
+/* harmony import */ var _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./user/forgot-password/forgot-password.component */ "./src/app/user/forgot-password/forgot-password.component.ts");
+/* harmony import */ var _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./logo/main-logo/main-logo.component */ "./src/app/logo/main-logo/main-logo.component.ts");
+
+
 
 
 
@@ -2244,7 +2273,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_admin_posts_admin_posts_component__WEBPACK_IMPORTED_MODULE_61__["AdminPostsComponent"],
             _admin_admin_post_admin_post_edit_admin_post_edit_component__WEBPACK_IMPORTED_MODULE_62__["AdminPostEditComponent"],
             _admin_admin_post_admin_post_edit_admin_post_edit_preview_admin_post_edit_preview_component__WEBPACK_IMPORTED_MODULE_63__["AdminPostEditPreviewComponent"],
-            _admin_admin_post_admin_post_edit_admin_post_edit_form_admin_post_edit_form_component__WEBPACK_IMPORTED_MODULE_64__["AdminPostEditFormComponent"]
+            _admin_admin_post_admin_post_edit_admin_post_edit_form_admin_post_edit_form_component__WEBPACK_IMPORTED_MODULE_64__["AdminPostEditFormComponent"],
+            _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_65__["ForgotPasswordComponent"],
+            _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__["MainLogoComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -4228,6 +4259,12 @@ let ProfileService = class ProfileService {
     updatePhoneCode(userData) {
         return this.http.post('/api/user/profile/update/autocomplete/country', userData, _httpOptions__WEBPACK_IMPORTED_MODULE_6__["httpOptions"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error)));
     }
+    forgotPassword(email) {
+        return this.http.post('/api/user/forgot-password', { email }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error)));
+    }
+    loginLinkedin() {
+        return this.http.get('/api/user/linkedin').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error)));
+    }
     logout() {
         localStorage.removeItem('token');
         this.userSource.next(null);
@@ -4949,6 +4986,51 @@ Logo4remComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], Logo4remComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/logo/main-logo/main-logo.component.scss":
+/*!*********************************************************!*\
+  !*** ./src/app/logo/main-logo/main-logo.component.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ28vbWFpbi1sb2dvL21haW4tbG9nby5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/logo/main-logo/main-logo.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/logo/main-logo/main-logo.component.ts ***!
+  \*******************************************************/
+/*! exports provided: MainLogoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainLogoComponent", function() { return MainLogoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let MainLogoComponent = class MainLogoComponent {
+    constructor() {
+        this.logo = 'assets/logo_icons/logo-azrin-dev.png';
+    }
+    ngOnInit() {
+    }
+};
+MainLogoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-main-logo',
+        template: __webpack_require__(/*! raw-loader!./main-logo.component.html */ "./node_modules/raw-loader/index.js!./src/app/logo/main-logo/main-logo.component.html"),
+        styles: [__webpack_require__(/*! ./main-logo.component.scss */ "./src/app/logo/main-logo/main-logo.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], MainLogoComponent);
 
 
 
@@ -6883,6 +6965,68 @@ AuthRegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/user/forgot-password/forgot-password.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/user/forgot-password/forgot-password.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvZm9yZ290LXBhc3N3b3JkL2ZvcmdvdC1wYXNzd29yZC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/user/forgot-password/forgot-password.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/user/forgot-password/forgot-password.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: ForgotPasswordComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function() { return ForgotPasswordComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/configurations/services/profile-service/profile-service.service */ "./src/app/configurations/services/profile-service/profile-service.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+
+
+
+
+
+let ForgotPasswordComponent = class ForgotPasswordComponent {
+    constructor(profileService, snackBar) {
+        this.profileService = profileService;
+        this.snackBar = snackBar;
+        this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email])
+        });
+    }
+    ngOnInit() {
+    }
+    login() {
+        const email = this.loginForm.get('email').value;
+        this.profileService.forgotPassword(email).subscribe((response) => console.log(response), 
+        // this.snackBar.open('A password reset link has been emailed to your registered email.', 'X', { duration: 10000, panelClass: 'pink-style' }),
+        (error => this.snackBar.open(`Error: ${error}`, 'X', { duration: 10000, panelClass: 'red-style' })));
+    }
+};
+ForgotPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-forgot-password',
+        template: __webpack_require__(/*! raw-loader!./forgot-password.component.html */ "./node_modules/raw-loader/index.js!./src/app/user/forgot-password/forgot-password.component.html"),
+        styles: [__webpack_require__(/*! ./forgot-password.component.scss */ "./src/app/user/forgot-password/forgot-password.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_3__["ProfileService"],
+        _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBar"]])
+], ForgotPasswordComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/user/login/login.component.scss":
 /*!*************************************************!*\
   !*** ./src/app/user/login/login.component.scss ***!
@@ -6930,6 +7074,12 @@ let LoginComponent = class LoginComponent {
     }
     login() {
         this.profileService.login(this.loginForm.value);
+    }
+    signInLinkedin() {
+        console.log('Linkedin');
+        this.profileService.loginLinkedin().subscribe((response) => {
+            console.log(response);
+        });
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

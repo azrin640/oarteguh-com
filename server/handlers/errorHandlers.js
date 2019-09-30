@@ -13,22 +13,18 @@ exports.catchErrors = (fn) => {
   };
 };
 
-/*
-  Not Found Error Handler
 
-  If we hit a route that is not found, we mark it as 404 and pass it along to the next error handler to display
-*/
+//   Not Found Error Handler
+//   If we hit a route that is not found, we mark it as 404 and pass it along to the next error handler to display
 exports.notFound = (req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 };
 
-/*
-  Development Error Handler
 
-  In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
-*/
+//   Development Error Handler
+//   In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
 exports.developmentErrors = (err, req, res, next) => {
   err.stack = err.stack || '';
   const errorDetails = {
@@ -47,11 +43,8 @@ exports.developmentErrors = (err, req, res, next) => {
 };
 
 
-/*
-  Production Error Handler
-
-  No stacktraces are leaked to user
-*/
+//   Production Error Handler
+//   No stacktraces are leaked to user
 exports.productionErrors = (err, req, res, next) => {
   res.status(err.status || 500);
   console.log('error', {

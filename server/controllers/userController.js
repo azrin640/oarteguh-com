@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const passport = require('passport');
 const User = mongoose.model('User');
 const { promisify } = require('es6-promisify');
 const { body } = require('express-validator/check');
@@ -12,6 +11,29 @@ const axios = require('axios');
 const nodemailer = require('../handlers/nodemailer');
 const express = require('express');
 const app = express();
+const passport = require('passport');
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+
+// Linkedin login 
+passport.use(new LinkedInStrategy({
+         clientID: process.env.LINKEDIN_KEY,
+         clientSecret: process.env.LINKEDIN_SECRET,
+         callbackURL: 'http://127.0.0.1:4200/user/login',
+         scope: ['r_emailaddress', 'r_basicprofile'],
+         state: true
+      }, 
+      function(accessToken, refreshToken, profile, done) {
+         process.nextTick(function () {
+            return done(null, profile);
+         });
+      }
+));
+
+exports.authLinkedin = passport.authenticate('linkedin');
+
+exports.redirectLinkedin = async(req, res, next) => {
+   
+}
 
 exports.reqLocation = async (req, res) => {
    let ip = req.ip.slice(7, 20).trim();
@@ -92,7 +114,7 @@ exports.authenticateAuthToken = async (req, res) => {
       { authenticated: true, terms: true }, 
       { new: true, useFindAndModify: false }
    )
-      .catch(error => res.json(error));
+   .catch(error => res.json(error));
 
    if(user){
      
@@ -215,12 +237,6 @@ exports.updateCountry = async(req, res) => {
    
 };
 
-// ** Forgot Password **
-exports.reqValidateForgotPassword = [
-
-   body('email').isEmail().normalizeEmail()
-                           
-];
 
 exports.forgotPassword = async(req, res) => {
 
@@ -258,6 +274,23 @@ exports.forgotPassword = async(req, res) => {
    else res.json({ status: 400, statusText: 'Email does not exist, please register to login.'});        
 
 };
+
+exports.forgotPassword1 = async(req, res, next) => {
+   const result = await User.findOne({ email: req.body.email })
+   .catch(error => res.json(error));
+   console.log(result);
+   if(result && result._id){
+      res.locals.user = result;
+      return next();
+   }
+   res.json(result);
+}
+
+exports.forgotPassword2 = async(req, res, next) => {
+   const user = res.locals.user;
+   console.log(user);
+   res.json(user);
+}
 
 // ** Reset Password
 exports.reqValidateResetPassword = [
