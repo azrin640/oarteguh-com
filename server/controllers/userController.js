@@ -24,12 +24,18 @@ passport.use(new LinkedInStrategy({
       }, 
       function(accessToken, refreshToken, profile, done) {
          process.nextTick(function () {
-            return done(null, profile);
+            return done(accessToken, profile);
          });
       }
 ));
 
-exports.authLinkedin = passport.authenticate('linkedin');
+exports.authLinkedin = async(req,res, next) => {
+   console.log('Linkedin login start');
+   const user = passport.authenticate('linkedin');
+   console.log(user);
+
+}
+   
 
 exports.redirectLinkedin = async(req, res, next) => {
    
