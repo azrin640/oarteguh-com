@@ -528,6 +528,17 @@ module.exports = "<p>\n  callback works!\n</p>\n"
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/user/login/linkedin/linkedin.component.html":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/user/login/linkedin/linkedin.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  linkedin works!\n</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/user/login/login.component.html":
 /*!***************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/user/login/login.component.html ***!
@@ -535,7 +546,7 @@ module.exports = "<p>\n  callback works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n      <app-main-logo></app-main-logo>\n\n      <div class=\"card\">\n         <mat-card>\n            <mat-card-title>\n               Login Form \n            </mat-card-title>\n            <mat-card-content>\n\n               <div class=\"login__form\">\n\n                  <form [formGroup]=\"loginForm\" (ngSubmit)=\"login()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"lm__form-input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input   matInput                                     \n                                    placeholder=\"Email\" \n                                    #email \n                                    formControlName=\"email\" \n                                    required autocomplete=\"email\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <mat-form-field class=\"lm__form-input\" appearance=\"fill\">\n                           <mat-label>Password</mat-label>\n                           <input   matInput                                     \n                                    type=\"password\" \n                                    placeholder=\"Password\" \n                                    formControlName=\"password\" \n                                    required \n                                    autocomplete=\"password\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">vpn_key</mat-icon>\n                           <mat-hint>Enter password here</mat-hint>\n                           <mat-error *ngIf=\"loginForm.get('password').hasError('required')\">\n                              Password is <strong>required</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"lm__form-button\" type=\"submit\" [disabled]=\"loginForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Login\n                        </button>\n\n                     </div>\n\n                     {{ loginForm.errors }}\n\n                  </form>\n\n               </div>               \n\n            </mat-card-content>\n\n            <mat-card-actions>\n               <button mat-button class=\"lm__form-button-linkedin\" (click)=\"signInLinkedin()\">\n                  <img src=\"assets/logo_icons/Sign-In-Small---Default.png\" alt=\"\">\n               </button>\n            </mat-card-actions>\n\n            <mat-card-footer>\n               <mat-divider></mat-divider>\n               <button mat-button routerLink=\"/user/forgot-password\">Forgot Password</button>\n               <span> | </span>\n               <button mat-button routerLink=\"/user/register\">Register</button>\n            </mat-card-footer>\n         </mat-card>\n      </div>\n   </div>\n\n</div>\n"
+module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n   <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n      <app-main-logo></app-main-logo>\n\n      <div class=\"card\">\n         <mat-card>\n            <mat-card-title>\n               Login Form \n            </mat-card-title>\n            <mat-card-content>\n\n               <div class=\"login__form\">\n\n                  <form [formGroup]=\"loginForm\" (ngSubmit)=\"login()\">\n\n                     <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n                        <mat-form-field class=\"lm__form-input\" appearance=\"fill\">\n                           <mat-label>Email</mat-label>\n                           <input   matInput                                     \n                                    placeholder=\"Email\" \n                                    #email \n                                    formControlName=\"email\" \n                                    required autocomplete=\"email\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">alternate_email</mat-icon>\n                           <mat-hint>Enter email here</mat-hint>\n\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('required')\">\n                              Email is <strong>required</strong>\n                           </mat-error>\n                           <mat-error *ngIf=\"loginForm.get('email').hasError('email')\">\n                              Please enter a valid <strong>email</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <mat-form-field class=\"lm__form-input\" appearance=\"fill\">\n                           <mat-label>Password</mat-label>\n                           <input   matInput                                     \n                                    type=\"password\" \n                                    placeholder=\"Password\" \n                                    formControlName=\"password\" \n                                    required \n                                    autocomplete=\"password\"\n                           >\n                           <mat-icon matSuffix color=\"primary\">vpn_key</mat-icon>\n                           <mat-hint>Enter password here</mat-hint>\n                           <mat-error *ngIf=\"loginForm.get('password').hasError('required')\">\n                              Password is <strong>required</strong>\n                           </mat-error>\n                        </mat-form-field>\n\n                        <button mat-raised-button class=\"lm__form-button\" type=\"submit\" [disabled]=\"loginForm.invalid\" color=\"primary\" >\n                           <mat-icon>check_circle</mat-icon>\n                           Login\n                        </button>\n\n                     </div>\n\n                     {{ loginForm.errors }}\n\n                  </form>\n\n               </div>               \n\n            </mat-card-content>\n\n            <mat-card-actions>\n               <button mat-button class=\"lm__form-button-linkedin\" (click)=\"signInLinkedin()\">\n                     <!-- (click)=\"signInLinkedin()\" -->\n                  <img src=\"assets/logo_icons/Sign-In-Small---Default.png\" alt=\"\">\n               </button>\n            </mat-card-actions>\n\n            <mat-card-footer>\n               <mat-divider></mat-divider>\n               <button mat-button routerLink=\"/user/forgot-password\">Forgot Password</button>\n               <span> | </span>\n               <button mat-button routerLink=\"/user/register\">Register</button>\n            </mat-card-footer>\n         </mat-card>\n      </div>\n   </div>\n   \n</div>\n"
 
 /***/ }),
 
@@ -1977,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_posts_admin_posts_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/admin-posts/admin-posts.component */ "./src/app/admin/admin-posts/admin-posts.component.ts");
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit.component.ts");
 /* harmony import */ var _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./user/forgot-password/forgot-password.component */ "./src/app/user/forgot-password/forgot-password.component.ts");
-/* harmony import */ var _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./user/login/callback/callback.component */ "./src/app/user/login/callback/callback.component.ts");
+/* harmony import */ var _user_login_linkedin_linkedin_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./user/login/linkedin/linkedin.component */ "./src/app/user/login/linkedin/linkedin.component.ts");
 
 
 
@@ -2008,7 +2019,7 @@ const routes = [
     { path: 'contact', component: _contact_form_contact_form_component__WEBPACK_IMPORTED_MODULE_6__["ContactFormComponent"], data: { name: 'Contact Us', icon: 'alternate_email', tooltip: 'Contact Us', type: 'public' } },
     { path: 'posts/tags/tag/:tag', component: _tags_tags_component__WEBPACK_IMPORTED_MODULE_10__["TagsComponent"], data: { name: 'Tag', icon: 'dashboard', tooltip: 'Tag Page', type: 'user' } },
     { path: 'user/login', component: _user_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], data: { name: 'Login', icon: 'person', tooltip: 'Login Page', type: 'auth' } },
-    { path: 'user/login/callback', component: _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_22__["CallbackComponent"], data: { name: 'Callback', icon: 'person', tooltip: 'Callbck Page', type: 'auth' } },
+    { path: 'user/login/linkedin', component: _user_login_linkedin_linkedin_component__WEBPACK_IMPORTED_MODULE_22__["LinkedinComponent"], data: { name: 'Linkedin', icon: 'person', tooltip: 'Linkedin Callback Page', type: 'auth' } },
     { path: 'user/forgot-password', component: _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_21__["ForgotPasswordComponent"], data: { name: 'Forgot Password', icon: 'person', tooltip: 'Forgot Password', type: 'user' } },
     { path: 'post/:user/:id/:title', component: _post_post_component__WEBPACK_IMPORTED_MODULE_15__["PostComponent"], data: { name: 'Post', icon: 'menu_book', tooltip: 'Post', type: 'auth' } },
     { path: 'user/register', component: _user_register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"], data: { name: 'Register', icon: 'person_add', tooltip: 'Register Page', type: 'auth' } },
@@ -2165,6 +2176,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./user/forgot-password/forgot-password.component */ "./src/app/user/forgot-password/forgot-password.component.ts");
 /* harmony import */ var _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./logo/main-logo/main-logo.component */ "./src/app/logo/main-logo/main-logo.component.ts");
 /* harmony import */ var _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./user/login/callback/callback.component */ "./src/app/user/login/callback/callback.component.ts");
+/* harmony import */ var _user_login_linkedin_linkedin_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./user/login/linkedin/linkedin.component */ "./src/app/user/login/linkedin/linkedin.component.ts");
+
 
 
 
@@ -2292,7 +2305,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_admin_post_admin_post_edit_admin_post_edit_form_admin_post_edit_form_component__WEBPACK_IMPORTED_MODULE_64__["AdminPostEditFormComponent"],
             _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_65__["ForgotPasswordComponent"],
             _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__["MainLogoComponent"],
-            _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_67__["CallbackComponent"]
+            _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_67__["CallbackComponent"],
+            _user_login_linkedin_linkedin_component__WEBPACK_IMPORTED_MODULE_68__["LinkedinComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -4279,7 +4293,7 @@ let ProfileService = class ProfileService {
     forgotPassword(email) {
         return this.http.post('/api/user/forgot-password', { email }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error)));
     }
-    loginLinkedin() {
+    startLinkedin() {
         return this.http.get('/api/user/linkedin').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error)));
     }
     logout() {
@@ -7087,6 +7101,49 @@ CallbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/user/login/linkedin/linkedin.component.scss":
+/*!*************************************************************!*\
+  !*** ./src/app/user/login/linkedin/linkedin.component.scss ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvbG9naW4vbGlua2VkaW4vbGlua2VkaW4uY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/user/login/linkedin/linkedin.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/user/login/linkedin/linkedin.component.ts ***!
+  \***********************************************************/
+/*! exports provided: LinkedinComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkedinComponent", function() { return LinkedinComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let LinkedinComponent = class LinkedinComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+LinkedinComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-linkedin',
+        template: __webpack_require__(/*! raw-loader!./linkedin.component.html */ "./node_modules/raw-loader/index.js!./src/app/user/login/linkedin/linkedin.component.html"),
+        styles: [__webpack_require__(/*! ./linkedin.component.scss */ "./src/app/user/login/linkedin/linkedin.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], LinkedinComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/user/login/login.component.scss":
 /*!*************************************************!*\
   !*** ./src/app/user/login/login.component.scss ***!
@@ -7112,8 +7169,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/configurations/services/profile-service/profile-service.service */ "./src/app/configurations/services/profile-service/profile-service.service.ts");
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/configurations/services/profile-service/profile-service.service */ "./src/app/configurations/services/profile-service/profile-service.service.ts");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+
+
 
 
 
@@ -7121,9 +7182,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginComponent = class LoginComponent {
-    constructor(profileService, snackBar) {
+    constructor(profileService, snackBar, sanitizer, router) {
         this.profileService = profileService;
         this.snackBar = snackBar;
+        this.sanitizer = sanitizer;
+        this.router = router;
         this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
@@ -7136,9 +7199,8 @@ let LoginComponent = class LoginComponent {
         this.profileService.login(this.loginForm.value);
     }
     signInLinkedin() {
-        console.log('Linkedin');
-        this.profileService.loginLinkedin().subscribe((response) => {
-            console.log(response);
+        this.profileService.startLinkedin().subscribe((response) => {
+            window.location.href = response;
         });
     }
 };
@@ -7151,16 +7213,18 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         selector: 'app-login',
         template: __webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/index.js!./src/app/user/login/login.component.html"),
         animations: [
-            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["trigger"])('fadeIn', [
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["state"])('true', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["style"])({ opacity: 1 })),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["state"])('false', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["style"])({ opacity: 0.5 })),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["transition"])('true <=> false', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["animate"])(7000))
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["trigger"])('fadeIn', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["state"])('true', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 1 })),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["state"])('false', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 0.5 })),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('true <=> false', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])(7000))
             ]) //end trigger
         ],
         styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/user/login/login.component.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_4__["ProfileService"],
-        _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_5__["ProfileService"],
+        _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
 ], LoginComponent);
 
 

@@ -69,6 +69,7 @@ import { AdminPostEditFormComponent } from './admin/admin-post/admin-post-edit/a
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { MainLogoComponent } from './logo/main-logo/main-logo.component';
 import { CallbackComponent } from './user/login/callback/callback.component';
+import { LinkedinComponent } from './user/login/linkedin/linkedin.component';
 
 export function tokenGetter(){
    return localStorage.getItem('access_token');
@@ -128,7 +129,8 @@ export function tokenGetter(){
     AdminPostEditFormComponent,
     ForgotPasswordComponent,
     MainLogoComponent,
-    CallbackComponent
+    CallbackComponent,
+    LinkedinComponent
   ],
   imports: [
     BrowserModule,

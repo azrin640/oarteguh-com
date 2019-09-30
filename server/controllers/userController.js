@@ -18,19 +18,26 @@ var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 passport.use(new LinkedInStrategy({
          clientID: process.env.LINKEDIN_KEY,
          clientSecret: process.env.LINKEDIN_SECRET,
-         callbackURL: 'http://127.0.0.1:7777/user/login',
+         callbackURL: 'https://biz.azrin.dev/user/login',
          scope: ['r_emailaddress', 'r_basicprofile'],
          state: true
       }, 
-      function(accessToken, refreshToken, profile, done) {
+      function(accessToken, refreshToken, profile, done) {         
+
          process.nextTick(function () {
-            console.log(accessToken);
-            return done(null, accessToken);
+            console.log(accessToken, refreshToken, profile, done);
+            return done(accessToken);
          });
       }
 ));
 
-exports.authLinkedin = passport.authenticate('linkedin');
+exports.authLinkedin = async(req, res, next) => {
+   const url = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_KEY}&redirect_uri=https%3A%2F%2Fbiz.azrin.dev/user/login/linkedin&state=${process.env.LINKEDIN_SECRET}&scope=r_basicprofile%20r_emailaddress`;
+
+   const auth = await axios.get(url);
+   console.log(auth);
+   res.json(auth.request.res.responseUrl);
+}
 
 exports.redirectLinkedin = function(req, res){
    console.log(req, res);

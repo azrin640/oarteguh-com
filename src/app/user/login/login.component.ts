@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/configurations/services/profile-service/profile-service.service';
 import { trigger, state, transition, animate, style } from '@angular/animations';
+import { SafeHtml, DomSanitizer, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -26,12 +27,16 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email] ),
       password: new FormControl('', Validators.required)
    });
+   auth: SafeHtml;
+
 
    @Output() isLoggedIn = new EventEmitter<Boolean>();
 
   constructor(
      private profileService: ProfileService,
-     public snackBar: MatSnackBar
+     public snackBar: MatSnackBar,
+     private sanitizer: DomSanitizer,
+     private router: Router
   ) { }
 
   ngOnInit() {
@@ -44,10 +49,9 @@ export class LoginComponent implements OnInit {
   }
 
   signInLinkedin(){
-     console.log('Linkedin');
-     this.profileService.loginLinkedin().subscribe(
+     this.profileService.startLinkedin().subscribe(
         (response: any) => {
-           console.log(response);
+           window.location.href = response;
         }
      )
   }

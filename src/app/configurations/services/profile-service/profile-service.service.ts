@@ -17,6 +17,7 @@ export class ProfileService {
    user: User;
    loggedIn: boolean = false;
    country;
+   paramsLinkedin;
 
    locSource = new BehaviorSubject(this.country);
    location = this.locSource as Observable<string>;
@@ -158,11 +159,13 @@ export class ProfileService {
       );
    }
 
-   loginLinkedin(){
+   startLinkedin(){
       return this.http.get('/api/user/linkedin').pipe(
          catchError(error => throwError(error))
-      );
+      )
    }
+
+
 
   logout()
   {
