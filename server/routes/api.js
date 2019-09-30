@@ -22,14 +22,13 @@ var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 passport.use(new LinkedInStrategy({
          clientID: process.env.LINKEDIN_KEY,
          clientSecret: process.env.LINKEDIN_SECRET,
-         callbackURL: 'https://biz.azrin.dev/api/user/linkedin',
+         callbackURL: 'https://biz.azrin.dev/user/login/callback',
          scope: ['r_emailaddress', 'r_basicprofile'],
          state: true
       }, 
       function(accessToken, refreshToken, profile, done) {
          process.nextTick(function () {
-            console.log(profile);
-            return done(null, profile);
+            return done(null, accessToken);
          });
       }
 ));

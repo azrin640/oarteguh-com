@@ -68,6 +68,7 @@ import { AdminPostEditPreviewComponent } from './admin/admin-post/admin-post-edi
 import { AdminPostEditFormComponent } from './admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { MainLogoComponent } from './logo/main-logo/main-logo.component';
+import { CallbackComponent } from './user/login/callback/callback.component';
 
 export function tokenGetter(){
    return localStorage.getItem('access_token');
@@ -126,7 +127,8 @@ export function tokenGetter(){
     AdminPostEditPreviewComponent,
     AdminPostEditFormComponent,
     ForgotPasswordComponent,
-    MainLogoComponent
+    MainLogoComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,

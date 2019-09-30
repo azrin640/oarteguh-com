@@ -517,6 +517,17 @@ module.exports = "<div class=\"lm__page-min70vh-hidden\" id=\"top\" fxLayout=\"c
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/user/login/callback/callback.component.html":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/user/login/callback/callback.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  callback works!\n</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/user/login/login.component.html":
 /*!***************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/user/login/login.component.html ***!
@@ -1966,6 +1977,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_posts_admin_posts_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/admin-posts/admin-posts.component */ "./src/app/admin/admin-posts/admin-posts.component.ts");
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit.component.ts");
 /* harmony import */ var _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./user/forgot-password/forgot-password.component */ "./src/app/user/forgot-password/forgot-password.component.ts");
+/* harmony import */ var _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./user/login/callback/callback.component */ "./src/app/user/login/callback/callback.component.ts");
+
 
 
 
@@ -1995,6 +2008,7 @@ const routes = [
     { path: 'contact', component: _contact_form_contact_form_component__WEBPACK_IMPORTED_MODULE_6__["ContactFormComponent"], data: { name: 'Contact Us', icon: 'alternate_email', tooltip: 'Contact Us', type: 'public' } },
     { path: 'posts/tags/tag/:tag', component: _tags_tags_component__WEBPACK_IMPORTED_MODULE_10__["TagsComponent"], data: { name: 'Tag', icon: 'dashboard', tooltip: 'Tag Page', type: 'user' } },
     { path: 'user/login', component: _user_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], data: { name: 'Login', icon: 'person', tooltip: 'Login Page', type: 'auth' } },
+    { path: 'user/login/callback', component: _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_22__["CallbackComponent"], data: { name: 'Callback', icon: 'person', tooltip: 'Callbck Page', type: 'auth' } },
     { path: 'user/forgot-password', component: _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_21__["ForgotPasswordComponent"], data: { name: 'Forgot Password', icon: 'person', tooltip: 'Forgot Password', type: 'user' } },
     { path: 'post/:user/:id/:title', component: _post_post_component__WEBPACK_IMPORTED_MODULE_15__["PostComponent"], data: { name: 'Post', icon: 'menu_book', tooltip: 'Post', type: 'auth' } },
     { path: 'user/register', component: _user_register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"], data: { name: 'Register', icon: 'person_add', tooltip: 'Register Page', type: 'auth' } },
@@ -2150,6 +2164,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_post_admin_post_edit_admin_post_edit_form_admin_post_edit_form_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component */ "./src/app/admin/admin-post/admin-post-edit/admin-post-edit-form/admin-post-edit-form.component.ts");
 /* harmony import */ var _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./user/forgot-password/forgot-password.component */ "./src/app/user/forgot-password/forgot-password.component.ts");
 /* harmony import */ var _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./logo/main-logo/main-logo.component */ "./src/app/logo/main-logo/main-logo.component.ts");
+/* harmony import */ var _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./user/login/callback/callback.component */ "./src/app/user/login/callback/callback.component.ts");
+
 
 
 
@@ -2275,7 +2291,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_admin_post_admin_post_edit_admin_post_edit_preview_admin_post_edit_preview_component__WEBPACK_IMPORTED_MODULE_63__["AdminPostEditPreviewComponent"],
             _admin_admin_post_admin_post_edit_admin_post_edit_form_admin_post_edit_form_component__WEBPACK_IMPORTED_MODULE_64__["AdminPostEditFormComponent"],
             _user_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_65__["ForgotPasswordComponent"],
-            _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__["MainLogoComponent"]
+            _logo_main_logo_main_logo_component__WEBPACK_IMPORTED_MODULE_66__["MainLogoComponent"],
+            _user_login_callback_callback_component__WEBPACK_IMPORTED_MODULE_67__["CallbackComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -7022,6 +7039,49 @@ ForgotPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_3__["ProfileService"],
         _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBar"]])
 ], ForgotPasswordComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/user/login/callback/callback.component.scss":
+/*!*************************************************************!*\
+  !*** ./src/app/user/login/callback/callback.component.scss ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvbG9naW4vY2FsbGJhY2svY2FsbGJhY2suY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/user/login/callback/callback.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/user/login/callback/callback.component.ts ***!
+  \***********************************************************/
+/*! exports provided: CallbackComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CallbackComponent", function() { return CallbackComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let CallbackComponent = class CallbackComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+CallbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-callback',
+        template: __webpack_require__(/*! raw-loader!./callback.component.html */ "./node_modules/raw-loader/index.js!./src/app/user/login/callback/callback.component.html"),
+        styles: [__webpack_require__(/*! ./callback.component.scss */ "./src/app/user/login/callback/callback.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], CallbackComponent);
 
 
 
