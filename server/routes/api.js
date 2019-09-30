@@ -15,11 +15,31 @@ const multer = require('multer');
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
 
+const passport = require('passport');
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+
+// Linkedin login 
+passport.use(new LinkedInStrategy({
+         clientID: process.env.LINKEDIN_KEY,
+         clientSecret: process.env.LINKEDIN_SECRET,
+         callbackURL: 'https://biz.azrin.dev/user/login',
+         scope: ['r_emailaddress', 'r_basicprofile'],
+         state: true
+      }, 
+      function(accessToken, refreshToken, profile, done) {
+         process.nextTick(function () {
+            console.log(profile);
+            return done(null, profile);
+         });
+      }
+));
+
 //  ** USER **
 
 router.get('/user/linkedin', 
-   userController.authLinkedin,
-   userController.redirectLinkedin
+   passport.authenticate('linkedin'),
+   function(req,res){
+   }
 );
 
 router.post('/user/location', 

@@ -18,27 +18,22 @@ var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 passport.use(new LinkedInStrategy({
          clientID: process.env.LINKEDIN_KEY,
          clientSecret: process.env.LINKEDIN_SECRET,
-         callbackURL: 'https://biz.azrin.dev/user/login',
+         callbackURL: 'http://127.0.0.1:7777/user/login',
          scope: ['r_emailaddress', 'r_basicprofile'],
          state: true
       }, 
       function(accessToken, refreshToken, profile, done) {
          process.nextTick(function () {
-            return done(accessToken, profile);
+            console.log(accessToken);
+            return done(null, accessToken);
          });
       }
 ));
 
-exports.authLinkedin = async(req,res, next) => {
-   console.log('Linkedin login start');
-   const user = passport.authenticate('linkedin');
-   console.log(user);
+exports.authLinkedin = passport.authenticate('linkedin');
 
-}
-   
-
-exports.redirectLinkedin = async(req, res, next) => {
-   
+exports.redirectLinkedin = function(req, res){
+   console.log(req, res);
 }
 
 exports.reqLocation = async (req, res) => {
