@@ -535,7 +535,7 @@ module.exports = "<p>\n  callback works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  linkedin works!\n</p>\n"
+module.exports = "<div class=\"lm__linkedin\" *ngIf=\"userLinkedin\">\n\n  {{ userLinkedin.localizedFirstName }} {{ userLinkedin.localizedLastName }}\n\n</div>\n"
 
 /***/ }),
 
@@ -4368,6 +4368,9 @@ var ProfileService = /** @class */ (function () {
     ProfileService.prototype.startLinkedin = function () {
         return this.http.get('/api/user/linkedin').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error); }));
     };
+    ProfileService.prototype.approvedLinkedin = function (params) {
+        return this.http.post('/api/user/linkedin/approved', params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error); }));
+    };
     ProfileService.prototype.logout = function () {
         localStorage.removeItem('token');
         this.userSource.next(null);
@@ -7349,12 +7352,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkedinComponent", function() { return LinkedinComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/configurations/services/profile-service/profile-service.service */ "./src/app/configurations/services/profile-service/profile-service.service.ts");
+
+
 
 
 var LinkedinComponent = /** @class */ (function () {
-    function LinkedinComponent() {
+    function LinkedinComponent(route, profileService) {
+        this.route = route;
+        this.profileService = profileService;
     }
     LinkedinComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.queryParamMap.subscribe(function (response) {
+            if (response.params.code && response.params.state) {
+                _this.profileService.approvedLinkedin(response.params).subscribe(function (response) {
+                    _this.userLinkedin = response;
+                });
+            }
+        });
     };
     LinkedinComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -7362,7 +7379,8 @@ var LinkedinComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./linkedin.component.html */ "./node_modules/raw-loader/index.js!./src/app/user/login/linkedin/linkedin.component.html"),
             styles: [__webpack_require__(/*! ./linkedin.component.scss */ "./src/app/user/login/linkedin/linkedin.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            src_app_configurations_services_profile_service_profile_service_service__WEBPACK_IMPORTED_MODULE_3__["ProfileService"]])
     ], LinkedinComponent);
     return LinkedinComponent;
 }());

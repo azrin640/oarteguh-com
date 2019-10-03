@@ -165,6 +165,12 @@ export class ProfileService {
       )
    }
 
+   approvedLinkedin(params){
+      return this.http.post('/api/user/linkedin/approved', params).pipe(
+         catchError(error => throwError(error))
+      )
+   }
+
 
 
   logout()

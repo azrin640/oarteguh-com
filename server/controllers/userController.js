@@ -13,6 +13,8 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+const https = require('https');
+
 
 // Linkedin login 
 passport.use(new LinkedInStrategy({
@@ -32,11 +34,31 @@ passport.use(new LinkedInStrategy({
 ));
 
 exports.authLinkedin = async(req, res, next) => {
-   const url = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_KEY}&redirect_uri=https%3A%2F%2Fbiz.azrin.dev/user/login/linkedin&state=${process.env.LINKEDIN_SECRET}&scope=r_basicprofile%20r_emailaddress`;
+   const url = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_KEY}&redirect_uri=https%3A%2F%2Fbiz.azrin.dev/user/login/linkedin&state=${process.env.LINKEDIN_SECRET}&scope=r_liteprofile%20r_emailaddress`;
 
    const auth = await axios.get(url);
-   console.log(auth);
    res.json(auth.request.res.responseUrl);
+}
+
+exports.approvedLinkedin = async(req, res, next) => {
+
+   const url = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${req.body.code}&redirect_uri=https%3A%2F%2Fbiz.azrin.dev/user/login/linkedin&client_id=${process.env.LINKEDIN_KEY}&client_secret=${process.env.LINKEDIN_SECRET}`;
+
+   const response = await axios.post(url);
+   
+   const token = response.data.access_token;
+
+   var options = {
+      "headers": {
+         "Authorization": `Bearer ${token}`,
+         "cache-control": "no-cache",
+         "Connection": "Keep-Alive"
+      }
+   };
+
+   const profile = await axios.get('https://api.linkedin.com/v2/me', options);
+   res.json(profile.data);
+
 }
 
 exports.redirectLinkedin = function(req, res){

@@ -22,6 +22,10 @@ router.get('/user/linkedin',
    catchErrors(userController.authLinkedin)
 );
 
+router.post('/user/linkedin/approved', 
+   catchErrors(userController.approvedLinkedin)
+);
+
 router.post('/user/location', 
    catchErrors(userController.reqLocation)
 );
