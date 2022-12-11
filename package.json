@@ -35,7 +35,7 @@
     "dotenv": "^8.0.0",
     "ejs": "^2.6.2",
     "es6-promisify": "^6.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.16.2",
     "express-validator": "^5.3.1",
     "font-awesome": "^4.7.0",
